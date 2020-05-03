@@ -1,0 +1,51 @@
+#__next {
+    position: relative;
+    min-height: 100vh;
+}
+
+.dlq-wrapper {
+    padding-top: 20px;
+    padding-bottom: 150px;
+}
+
+.dlq-h2 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 0;
+}
+
+.dlq-quiz-container {
+    padding: 50px;
+}
+
+.dlq-question-source {
+    padding: 10px 0 30px;
+}
+
+.dlq-hide {
+    display: none;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: middle;
+    border-style: none;
+}
+
+button {
+    margin: 7px 0 7px !important;
+}
+
+.sticky-top {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.sticky-bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1;
+}

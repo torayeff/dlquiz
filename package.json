@@ -1,7 +1,11 @@
 {
   "name": "dlquiz",
   "version": "0.1.0",
-  "private": true,
+  "description": "Deep Learning Quiz",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/torayeff/challenges.ai.git"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",

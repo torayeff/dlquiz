@@ -1,0 +1,457 @@
+[
+  {
+    "id": 41,
+    "question": "The figure below shows how the cost decreases (as the number of iterations increases) during training. What could have caused the sudden drop in the cost? Explain one reason. <br/> <img src='quiz_data/imgs/dl_quiz_id_41.png'/>",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "Learning rate decay.",
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Winter Quarter 2018. Stanford University."
+  },
+  {
+    "id": 40,
+    "question": "The figure below shows how the cost decreases (as the number of iterations increases) when two different optimization algorithms are used for training. Which of the graphs corresponds to using batch gradient descent as the optimization algorithm and which one corresponds to using mini-batch gradient descent? Explain. <br/> <img src='quiz_data/imgs/dl_quiz_id_40.png'/>",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "Batch gradient descent - Graph A, Minibatch - Graph B. Batch gradient descent - the cost goes down at every single iteration (smooth curve). Mini-batch - does not decrease at every iteration since we are just training on a mini-batch (noisier).",
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Winter Quarter 2018. Stanford University."
+  },
+  {
+    "id": 39,
+    "question": "What is a saddle point? What is the advantage/disadvantage of Stochastic Gradient Descent in dealing with saddle points?",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "Saddle point - The gradient is zero, but it is neither a local minima nor a local maxima. Also accepted - the gradient is zero and the function has a local maximum in one direction, but a local minimum in another direction. SGD has noisier updates and can help escape from a saddle point.",
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Winter Quarter 2018. Stanford University."
+  },
+  {
+    "id": 38,
+    "question": "What problem(s) will result from using a learning rate that’s too low? How would you detect these problems?",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "Cost function may not converge to an optimal solution, or will converge after a very long time. To detect, look at the costs after each iteration (plot the cost function v.s. the number of iterations). The cost function decreases very slowly (almost linearly). You could also try higher learning rates to see if the performance improves.",
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Winter Quarter 2018. Stanford University."
+  },
+  {
+    "id": 37,
+    "question": "What problem(s) will result from using a learning rate that’s too high? How would you detect these problems?",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "Cost function does not converge to an optimal solution and can even diverge. To detect, look at the costs after each iteration (plot the cost function v.s. the number of iterations). If the cost oscillates wildly, the learning rate is too high. For batch gradient descent, if the cost increases, the learning rate is too high.",
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Winter Quarter 2018. Stanford University."
+  },
+  {
+    "id": 36,
+    "question": "Suppose you are initializing the weights \\(W^{[l]}\\) of a layer with uniform random distribution \\(U(-\\alpha,\\alpha)\\). The number of input and output neurons of the layer \\(l\\) are \\(n^{[l-1]}\\) and \\(n^{[l]}\\) respectively.</br>\nAssume the input activation and weights are independently and identically distributed and have mean zero. You would like to satisfy the following equations: $$\\begin{split} E[z^{[l]}] &= 0 \\\\ Var[z^{[l]}] &= Var[a^{[l-1]}]  \\end{split}$$ What should be the value of \\(\\alpha\\)?",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "If \\(X\\) is a random variable distributed uniformly \\(U(-\\alpha, \\alpha)\\), then \\(E[X]=0\\) and \\(Var[X]=\\frac{\\alpha^2}{3}\\). Using \\(Var[z^{[l]}] = n^{[l-1]}Var[W^{[l]}]Var[a^{[l-1]}]\\) relationship, we get \\(\\alpha = \\sqrt{\\frac{3}{n^{[l-1]}}}\\). For the details see <a href=\"https://www.deeplearning.ai/ai-notes/initialization/index.html\" target=\"_blank\">here</a>.",
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Winter Quarter 2018. Stanford University."
+  },
+  {
+    "id": 35,
+    "question": "Why do we often refer to \\(\\text L2\\)-regularization as \"weight decay\"? Derive a mathematical expression to explain your point.",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "In the case of \\(\\text L2\\) regularization, we can derive the following update rule for the weights: $$W = (1-\\alpha\\lambda)W - \\frac{\\partial J}{\\partial W}$$ where \\(\\alpha\\) is the learning rate and \\(\\lambda\\) is the regularization hyperparameter (\\(\\alpha \\lambda << 1\\)). This shows that at every iteration \\(W\\)’s value is pushed closer to zero.",
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Winter Quarter 2018. Stanford University."
+  },
+  {
+    "id": 34,
+    "question": "Explain why dropout in a neural network acts as a regularizer.",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "<ul>\n<li>Dropout is a form of model averaging. In particular, for a layer of \\(H\\) nodes, we are sampling from \\(2^H\\) architectures, where we choose an arbitrary subset of the nodes to remain active. The weights learned are shared across all these models means that the various models are regularizing the other models.</li>\n<li>Dropout helps prevent feature co-adaptation, which has a regularizing effect.</li>\n<li>Dropout adds noise to the learning process, and training with noise, in general, has a regularizing effect.</li>\n<li>Dropout leads to more sparsity in the hidden units, which has a regularizing effect.</li>\n</ul>",
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Winter Quarter 2018. Stanford University."
+  },
+  {
+    "id": 33,
+    "question": "Assume that before training your neural network the setting is:\n<ol>\n<li>The data is zero centered.</li>\n<li>All weights are initialized independently with mean \\(0\\) and variance \\(0.001\\).</li>\n<li> The biases are all initialized to \\(0\\).</li>\n<li>Learning rate is small and cannot be tuned.</li>\n</ol>\nexplain which activation function between \\(\\text{tanh}\\) and \\(\\text{sigmoid}\\)\nis likely to lead to a higher gradient during the first update.",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "Recall that \\(\\sigma(z) = \\frac{1}{1 + e^{-z}}\\), \\(\\text{tanh}(z) = \\frac{e^z - e^{-z}}{e^z + e^{-z}}\\), gradient for sigmoid is \\(\\sigma(z) * (1-\\sigma(z))\\), and gradient for \\(\\text{tanh}\\) is \\(1 - \\text{tanh}^2(z)\\). During initialization, expected value of \\(z\\) is 0. Consequently, the derivative of \\(\\sigma\\) w.r.t. \\(z\\) evaluated at zero is \\(0.5 * 0.5 = 0.25\\), and the derivative of \\(\\text{tanh}\\) w.r.t. \\(z\\) evaluated at zero is \\(1\\). Therefore, \\(\\text{tanh}\\) has higher gradient magnitude close to zero.",
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Fall Quarter 2018. Stanford University."
+  },
+  {
+    "id": 32,
+    "question": "You’d like to train a fully-connected neural network with 5 hidden layers, each with 10 hidden units. The input is 20-dimensional and the output is a scalar. What is the total number of trainable parameters in your network?",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "\\((20+1)*10 + (10+1)*10*4 + (10+1)*1\\)",
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Fall Quarter 2018. Stanford University."
+  },
+  {
+    "id": 31,
+    "question": "Weight sharing allows CNNs to deal with image data without using too many parameters. Does weight sharing increase the bias or the variance of a model?",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "Increases bias.",
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Fall Quarter 2018. Stanford University."
+  },
+  {
+    "id": 30,
+    "question": "You would like to train a dog/cat image classifier using mini-batch gradient descent. You have already split your dataset into train, dev and test sets. The classes are balanced. You realize that within the training set, the images are ordered in such a way that all the dog images come first and all the cat images come after. A friend tells you: \"you absolutely need to shuffle your training set before the training procedure.\" Is your friend right? Explain.",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "Yes, there is a problem. The optimization is much harder with minibatch gradient descent because the loss function moves by a lot when going from the one type of image to another.",
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Fall Quarter 2018. Stanford University."
+  },
+  {
+    "id": 29,
+    "question": "You are doing full batch gradient descent using the entire training set (not stochastic gradient descent). Is it necessary to shuffle the training data? Explain your answer.",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "It is not necessary. Each iteration of full batch gradient descent runs through the entire dataset and therefore order of the dataset does not matter.",
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Fall Quarter 2018. Stanford University."
+  },
+  {
+    "id": 28,
+    "question": "You are given a dataset of \\(10 \\times 10\\) grayscale images. Your goal is to build a 5-class classifier. You have to adopt one of the following two options:\n<ul>\n<li>the input is flattened into a 100-dimensional vector, followed by a fully-connected\nlayer with 5 neurons</li>\n<li>the input is directly given to a convolutional layer with five \\(10 \\times 10\\) filters</li>\n</ul>\nExplain which one you would choose and why.",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "The 2 approaches are the same. But the second one seems better in terms of computational costs (no need to flatten the input). ",
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Fall Quarter 2018. Stanford University."
+  },
+  {
+    "id": 27,
+    "question": "You design a fully connected neural network architecture where all activations are sigmoids. You initialize the weights with large positive numbers. Is this a good idea? Explain your answer.",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "Large \\(W\\) causes \\(Wx\\) to be large. When \\(Wx\\) is large, the gradient is small for sigmoid activation function. Hence, we will encounter the vanishing gradient problem.",
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Fall Quarter 2018. Stanford University."
+  },
+  {
+    "id": 26,
+    "question": "You are training a logistic regression model. You initialize the parameters with 0’s. Is this a good idea? Explain your answer.",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "There is no symmetry problem with this approach. In logistic regression, we have \\(a = Wx + b\\) where \\(a\\) is a scalar and \\(W\\) and \\(x\\) are both vectors. The derivative of the binary cross-entropy loss with respect to a single dimension in the weight vector \\(W[i]\\) is a function of \\(x[i]\\), which is in general different than \\(x[j]\\) when \\(i \\ne j\\).",
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Fall Quarter 2018. Stanford University."
+  },
+  {
+    "id": 25,
+    "question": "Consider the layers \\(l\\) and \\(l−1\\) in a fully connected neural network. The forward propagation equations for these layers are: $$ \\begin{align*} z^{[l-1]} &= W^{[l-1]}a^{[l-2]} + b^{[l-1]} \\\\ a^{[l-1]} &= g^{[l-1]}(z^{[l-1]}) \\\\ z^{[l]} &= W^{[l]}a^{[l-1]} + b^{[l]} \\\\ a^{[l]} &= g^{[l]}(z^{[l]}) \\end{align*}$$ Which of the following propositions is true? Xavier initialization ensures that :",
+    "type": "one_correct",
+    "answers": [
+      "\\(Var(W^{[l-1]})\\) is the same as \\(Var(W^{[l]})\\).",
+      "\\(Var(b^{[l]})\\) is the same as \\(Var(b^{[l-1]})\\).",
+      "\\(Var(a^{[l]})\\) is the same as \\(Var(a^{[l-1]})\\), at the end of the training.",
+      "\\(Var(a^{[l]})\\) is the same as \\(Var(a^{[l-1]})\\), at the beginning of the training."
+    ],
+    "correctAnswer": [3],
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Fall Quarter 2018. Stanford University."
+  },
+  {
+    "id": 24,
+    "question": "Which of the following is true, given the optimal learning rate?",
+    "type": "one_correct",
+    "answers": [
+      "Batch gradient descent is always guaranteed to converge to the global optimum of a loss function.",
+      "Stochastic gradient descent is always guaranteed to converge to the global optimum of a loss function.",
+      "For convex loss functions (i.e. with a bowl shape), batch gradient descent is guaranteed to eventually converge to the global optimum while stochastic gradient descent is not.",
+      "For convex loss functions (i.e. with a bowl shape), stochastic gradient descent is guaranteed to eventually converge to the global optimum while batch gradient descent is not.",
+      "For convex loss functions (i.e. with a bowl shape), both stochastic gradient descent and batch gradient descent will eventually converge to the global optimum.",
+      "For convex loss functions (i.e. with a bowl shape), neither stochastic gradient ndescent nor batch gradient descent are guaranteed to converge to the global optimum."
+    ],
+    "correctAnswer": [2],
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Fall Quarter 2018. Stanford University."
+  },
+  {
+    "id": 23,
+    "question": "Consider the following data sets:\n<ul>\n<li>\\(X_{\\text{train}} = (x^{(1)}, x^{(2)}, ..., x^{(m_{\\text{train}})}), (Y_{\\text{train}} = (y^{(1)}, y^{(2)}, ..., y^{(m_{\\text{train}})}) \\)</li>\n<li>\\(X_{\\text{test}} = (x^{(1)}, x^{(2)}, ..., x^{(m_{\\text{test}})}), (Y_{\\text{test}} = (y^{(1)}, y^{(2)}, ..., y^{(m_{\\text{test}})}) \\)</li>\n</ul>\nYou want to normalize your data before training your model. Which of the following\npropositions are true? Check all that apply.",
+    "type": "multi_correct",
+    "answers": [
+      "The normalizing mean and variance computed on the training set, and used to train the model, should be used to normalize test data.",
+      "Test data should be normalized with its own mean and variance before being fed to the network at test time because the test distribution might be different from the train distribution.",
+      "Normalizing the input impacts the landscape of the loss function.",
+      "In imaging, just like for structured data, normalization consists in subtracting the mean from the input and multiplying the result by the standard deviation."
+    ],
+    "correctAnswer": [0, 2],
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Fall Quarter 2018. Stanford University."
+  },
+  {
+    "id": 22,
+    "question": "Which of the following techniques does NOT prevent a model from overfitting?",
+    "type": "one_correct",
+    "answers": [
+      "Data augmentation",
+      "Dropout",
+      "Early stopping",
+      "None of the above"
+    ],
+    "correctAnswer": [3],
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Fall Quarter 2018. Stanford University."
+  },
+  {
+    "id": 21,
+    "question": "During training time, the batch normalization layer uses the mini-batch statistics to estimate \\(\\mu\\) and \\((\\sigma)^2\\). However, at test time, it uses the moving averages of the mean and variance tracked (but not used) during training time. Why is this approach preferred over using the mini-batch statistics during training and at test time?",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "<ul>\n<li>Moving averages of the mean and variance produce a normalization that’s more consistent with the transformation the network used to learn during training than the mini-batch statistics. You need to support variable batch sizes at test time, which includes small batch sizes (as small as a single example). The variability/noisiness between input images means batches with small batch sizes at test time will be less likely to have the same mini-batch statistics that produce the normalized activations trained on at training time. Using the moving averages of mean and variance as estimates of the population statistics addresses this issue.</li>\n<li>Moving averages of the mean and variance produce a consistent normalization for an example, that’s independent of the other examples in the batch.</li>\n</ul>",
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Spring Quarter 2018. Stanford University."
+  },
+  {
+    "id": 20,
+    "question": "The batch normalization applies \\(\\tilde z = \\gamma z_{\\text{norm}} + \\beta\\) transformation to the input, where \\(z_{\\text{norm}} \\) is a standard score normalization, \\(\\gamma\\) and \\(\\beta\\) are learned parameters. Explain what would go wrong if the batch normalization layer only applied \\(z_{\\text{norm}}\\).",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "Normalizing each input of a layer may change what the layer can represent. For instance, normalizing the inputs of a sigmoid would constrain them to the linear regime of the nonlinearity. \\(\\tilde z\\) makes sure that the transformation inserted in the network can represent the identity transform.",
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Spring Quarter 2018. Stanford University."
+  },
+  {
+    "id": 19,
+    "question": "Give the benefits of using a batch normalization layer.",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "<ul>\n<li>accelerates learning by reducing covariate\nshift, decoupling dependence of layers, and/or allowing for higher learning rates/\ndeeper networks;</li>\n<li>accelerates learning by normalizing contours of output distribution to be more uniform across dimensions;</li>\n<li>regularizes by using batch statistics as noisy estimates of the mean and variance for normalization (reducing likelihood of overfitting);</li>\n<li>mitigates poor weights initialization and/or variability in scale of weights;</li>\n<li>mitigates vanishing/exploding gradient problems;</li>\n<li>constrains output of each layer to relevant regions of an activation function, and/or stabilizes optimization process;</li>\n<li>mitigates linear discrepancies between batches;</li>\n<li>improves expressiveness of the model by including additional learned parameters, \\(\\gamma\\) and \\(\\beta\\), producing improved loss.</li>\n<ul>",
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Spring Quarter 2018. Stanford University."
+  },
+  {
+    "id": 18,
+    "question": "Explain the batch normalization layer formulas.",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "The batch normalization layer takes values \\( z = (z^{(1)}, ..., z^{(m)}) \\) as input and computes \\( z_{\\text{norm}} = (z_{\\text{norm}}^{(1)}, ..., z_{\\text{norm}}^{(m)}) \\) according to: $$z_{\\text{norm}}^{(i)} = \\frac{z^{(i)} - \\mu}{\\sqrt{(\\sigma^2) + \\epsilon}} \\quad \\text{where} \\quad \\mu=\\frac{1}{m}\\sum_{i=1}^{m}z^{(i)} \\quad \\text{and} \\quad (\\sigma^2) = \\frac{1}{m}\\sum_{i=1}^{m}(z^{(i)} - \\mu)^2$$ where \\(\\epsilon\\) prevents division by \\(0\\) for features with variance \\(0\\). It then applies a second transformation to get \\(\\tilde z = (\\tilde z^{(1)}, ..., \\tilde z^{(m)})\\) using learned parameters \\(\\gamma\\) and \\(\\beta\\): $$\\tilde z^{(i)} = \\gamma z^{(i)}_{\\text{norm}} + \\beta$$",
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Spring Quarter 2018. Stanford University."
+  },
+  {
+    "id": 17,
+    "question": "Assume you are using softmax activation with cross-entropy loss with ground truth vector \\( y \\in \\{0, 1\\}^{n_y} \\) with \\( L \\) nonzero components. What is the lower bound on the cross-entropy loss \\( \\mathcal{L}_{CE}(\\hat y, y) \\) for an example with \\(L\\) correct classes?",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "Let \\(S\\) denote the set of classes the given example belongs to (note \\( |S| = L \\)). Then, $$ \\begin{align} \\mathcal{L}_{CE}(\\hat y, y) & = -\\sum_{i \\in S}^{n_y}\\text{log}\\hat y_i \\\\ &= -(L) \\sum_{i \\in S}^{n_y}\\frac{1}{L}\\text{log}\\hat y_i \\\\ &\\ge (-L) \\text{log}(\\sum_{i \\in S}^{n_y}\\frac{1}{L}\\hat y_i) \\tag{by Jensen's Inequality} \\\\ &=(-L)\\text{log}\\frac{1}{L} \\tag{softmax sums to 1} \\\\ &= L\\text{log}L \\end{align}$$",
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Spring Quarter 2018. Stanford University."
+  },
+  {
+    "id": 16,
+    "question": "Given a task, where each example can simultaneously belong to multiple classes. Propose a way to label samples. Explain why softmax activation with cross-entropy loss is problematic for this task. Propose a different activation function for the last layer and a loss function that are better suited for this multi-class labeling task.",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "Samples can be labeled using multi-hot encoding, e.g. \\( (1, 0, 0, 1) \\) will be simultaneously class 1 and class 4.<br/> Using softmax activation with cross-entropy loss is problematic because it unfairly penalizes examples with many labels. In the extreme case, if the example belongs to all classes and the model correctly predicts \\( \\langle \\frac{1}{n_y}, ... ,\\frac{1}{n_y} \\rangle\\), then the CE-loss becomes \\( -\\sum_{i=1}^{n_y}\\text{log}\\hat y_i = n_y\\text{log}n_y \\), which will be far bigger than the loss for most-single class examples.<br/>\nInstead, we can formulate this as \\(n_y\\) independent logistic regression tasks, each trying to predict whether the example belongs to the corresponding class or not. Then the loss can simply be the average of \\(n_y\\) logistic losses over all classes.",
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Spring Quarter 2018. Stanford University."
+  },
+  {
+    "id": 15,
+    "question": "The last layer of the network computes logits \\( z = (z_1, ..., z_{n_y})^\\top\\), which are then fed into the softmax activation. Show why the cross-entropy loss can never be zero if you are using a softmax activation.",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "Assume the correct class is \\( c \\) and let \\( \\sum_{i=1}^{n_y} e^{z_i} \\) be the normalization term for softmax. Then \\( \\hat y = \\Big\\langle \\frac{e^{z_1}}{\\sum_{i=1}^{n_y} e^{z_i}} ... \\frac{e^{z_{n_y}}}{\\sum_{i=1}^{n_y} e^{z_i}} \\Big\\rangle\\). Then CE-loss reduces the following term: $$ -\\text{log}\\hat y_c = -\\text{log}\\frac{e^{z_c}}{ \\sum_{i=1}^{n_y} e^{z_i}} = \\text{log}\\sum_{i=1}^{n_y} e^{z_i} - \\text{log}e^{z_c}$$ And because \\( \\sum_{i=1}^{n_y} e^{z_i} \\ne e^{z_c}\\), the two terms are never equal and the loss will never reach zero, although it will get very close to zero at the end of training.",
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Spring Quarter 2018. Stanford University."
+  },
+  {
+    "id": 14,
+    "question": "You decide to train your neural\nnetwork with the accuracy as the objective instead of the cross-entropy loss for the classification task. Why is this a bad idea?",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "It’s difficult to directly optimize the accuracy because:\n<ul>\n<li>it depends on the entire training data, making it impossible to use stochastic\ngradient descent.</li>\n<li>the classification accuracy of a neural network is not differentiable with respect\nto its parameters.</li>\n</ul>",
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Spring Quarter 2018. Stanford University."
+  },
+  {
+    "id": 13,
+    "question": "Consider a dataset \\( \\{ x^{(1)}, x^{(2)}, ..., x^{(m)} \\} \\) where each example \\( x^{(i)} \\) contains a sequence of 100 numbers: $$ x^{(i)} = (x^{(i)<1>}, x^{(i)<2>}, ..., x^{(i)<100>}) $$ You have a very accurate (but not perfect) model that predicts \\(x^{<\\text t + 1>} \\) from \\( (x^{<1>}, x^{<2>}, ..., x^{<\\text t>})\\). Given \\( x^{<1>} \\), you want to generate \\( (x^{<2>}, ..., x^{<100>})\\) by repeatedly running your model. Your method is:\n<ol>\n<li>Predict \\( \\hat x^{<2>}\\) from \\( x^{<1>}\\)</li>\n<li>Predict \\( \\hat x^{<3>}\\) from \\( ( x^{<1>}, \\hat x^{<2>}) \\)</li>\n<li>...</li>\n<li>Predict \\( \\hat x^{<100>}\\) from \\( (x^{<1>}, \\hat x^{<2>}, ..., \\hat x^{<100>}) \\)</li>\n</ol>\nThe resulting \\( \\hat x^{<100>}\\) turns out to be very different from the true \\( x^{<100>} \\). Explain why.",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "Training/Test mismatch on sequence prediction.",
+    "answerComment": "There is a mismatch between training data and test data. During training, the network took in \\( \\langle x_1, ..., x_t \\rangle \\) as input to predict \\( x_{t+1} \\). In test time, however, most of the input \\( ( x_2, ..., x_t) \\) are what the model generated. And because the model is not perfect, the input distribution changes from the real distribution. And this drift from the training data distribution becomes worse because the error compounds over 100 steps.",
+    "source": "CS230: Deep Learning. Spring Quarter 2018. Stanford University."
+  },
+  {
+    "id": 12,
+    "question": "The universal approximation theorem states that a neural network with a\nsingle hidden layer can approximate any continuous function (with some assumptions\non the activation). Give one reason why you would use deep networks with multiple\nlayers.",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "While a neural network with a single hidden layer can represent any\ncontinuous function, the size of the hidden layer required to do so is prohibitively\nlarge for most problems. Also, having multiple layers allows the network to represent highly nonlinear (e.g. more than what a single sigmoid can represent) with\nfewer number of parameters than a shallow network can.",
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Spring Quarter 2018. Stanford University."
+  },
+  {
+    "id": 11,
+    "question": "Why is it necessary to include non-linearities in a neural network?",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "Without nonlinear activation functions, each layer simply performs a\nlinear mapping of the input to the output of the layer. Because linear functions are\nclosed under composition, this is equivalent to having a single (linear) layer. Thus,\nno matter how many such layers exist, the network can only learn linear functions.",
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Spring Quarter 2018. Stanford University."
+  },
+  {
+    "id": 10,
+    "question": "You forward propagate an input \\(x\\) in your neural network. The output probability is \\( \\hat y \\). Explain briefly what \\(  \\frac{\\partial \\hat y}{\\partial x} \\) is.",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "The derivative represents how much the output changes when the\ninput is changed. In other words, how much the input has influenced the output.",
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Spring Quarter 2018. Stanford University."
+  },
+  {
+    "id": 9,
+    "question": "Consider an input image of shape 500 × 500 × 3. You run this image in\na convolutional layer with 10 filters, of kernel size 5 × 5. How many parameters does\nthis layer have?",
+    "type": "text",
+    "correctAnswer": "5 × 5 × 3 × 10 and a bias value for each of the 10 filters, giving 760\nparameters.",
+    "source": "CS230: Deep Learning. Spring Quarter 2018. Stanford University."
+  },
+  {
+    "id": 8,
+    "question": "Consider an input image of shape 500 × 500 × 3. You flatten this image and use a fully\nconnected layer with 100 hidden units. What is the shape of the weight matrix of this layer? What is the shape of the corresponding bias vector?",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "Weight matrix: 750,000 × 100. Bias vector: 100 × 1.",
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Spring Quarter 2018. Stanford University."
+  },
+  {
+    "id": 7,
+    "question": "You are building a model to predict the presence (labeled 1) or absence\n(labeled 0) of a tumor in a brain scan. The goal is to ultimately deploy the model to\nhelp doctors in hospitals. Which of these two metrics would you choose to use?",
+    "type": "one_correct",
+    "answers": [
+      "\\( \\text{Precision} = \\frac{\\text{True positive examples}}{\\text{Total predicted positive examples}} \\)",
+      "\\( \\text{Recall} = \\frac{\\text{True positive examples}}{\\text{Total positive examples}} \\)"
+    ],
+    "correctAnswer": [
+      1
+    ],
+    "answerComment": "Increase recall, because we don’t want false negatives.",
+    "source": "CS230: Deep Learning. Spring Quarter 2018. Stanford University."
+  },
+  {
+    "id": 6,
+    "question": "Using \"neural style transfer\", you want to generate an\nRGB image of the Great Wall of China that looks like it was painted by Picasso. The\nsize of your image is 100x100x3 and you are using a pretrained network with 1,000,000\nparameters. At every iteration of gradient descent, how many updates do you perform?",
+    "type": "one_correct",
+    "answers": [
+      "10,000",
+      "30,000",
+      "1,000,000",
+      "1,030,000"
+    ],
+    "correctAnswer": [
+      1
+    ],
+    "answerComment": "You only update the image, i.e. 10,000 pixels and each pixel has\n3 channels.",
+    "source": "CS230: Deep Learning. Spring Quarter 2018. Stanford University."
+  },
+  {
+    "id": 5,
+    "question": "Mini-batch gradient descent is a better optimizer than full-batch gradient\ndescent to avoid getting stuck in saddle points.",
+    "type": "one_correct",
+    "answers": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": [
+      0
+    ],
+    "source": "CS230: Deep Learning. Spring Quarter 2018. Stanford University."
+  },
+  {
+    "id": 4,
+    "question": "You are training a Generative Adversarial Network to generate nice iguana\nimages, with mini-batch gradient descent. The generator cost \\( J^{(G)} \\) is extremely low,\nbut the generator is not generating meaningful output images. What could be the\nreason?",
+    "type": "multi_correct",
+    "answers": [
+      "The discriminator has poor performance.",
+      "Your generator is overfitting.",
+      "Your optimizer is stuck in a saddle point.",
+      "None of the above."
+    ],
+    "correctAnswer": [
+      0
+    ],
+    "source": "CS230: Deep Learning. Spring Quarter 2018. Stanford University."
+  },
+  {
+    "id": 3,
+    "question": "Consider a simple convolutional neural network with one convolutional layer. Which of the following statements is true about this network? (Check all that apply.)",
+    "type": "multi_correct",
+    "answers": [
+      "It is scale invariant.",
+      "It is rotation invariant.",
+      "It is translation invariant.",
+      "All of the above."
+    ],
+    "correctAnswer": [
+      2
+    ],
+    "source": "CS230: Deep Learning. Spring Quarter 2018. Stanford University."
+  },
+  {
+    "id": 2,
+    "question": "In order to backpropagate through a max-pool layer, you need to pass information about the positions of the max values from the forward pass.",
+    "type": "one_correct",
+    "answers": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": [
+      0
+    ],
+    "source": "CS230: Deep Learning. Spring Quarter 2018. Stanford University."
+  },
+  {
+    "id": 1,
+    "question": "Which of the following is true about max-pooling?",
+    "type": "one_correct",
+    "answers": [
+      "It allows a neuron in a network to have information about features in a larger part of the image, compared to a neuron at the same depth in a network without max pooling.",
+      "It increases the number of parameters when compared to a similar network without max pooling.",
+      "It increases the sensitivity of the network towards the position of features within an image."
+    ],
+    "correctAnswer": [
+      0
+    ],
+    "source": "CS230: Deep Learning. Spring Quarter 2018. Stanford University."
+  }
+]
