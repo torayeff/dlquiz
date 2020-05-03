@@ -4,8 +4,18 @@
   "description": "Deep Learning Quiz",
   "repository": {
     "type": "git",
-    "url": "https://github.com/torayeff/challenges.ai.git"
+    "url": "https://github.com/torayeff/dlquiz.git"
   },
+  "keywords": ["deep-learning-quiz", "js-quiz"],
+  "author": {
+    "name": "Agajan Torayev",
+    "url": "https://github.com/torayeff"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ashleygwilliams/my_package/issues"
+  },
+  "homepage": "https://dlquiz.challenges.ai",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
