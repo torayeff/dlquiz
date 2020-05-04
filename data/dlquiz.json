@@ -1,5 +1,106 @@
 [
   {
+    "id": 50,
+    "question": "You’re solving a binary classification task. You train a 4-layer neural network.. You initialize all weights to \\(0.5\\). Is this a good idea? Briefly explain why or why not.",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "No, initializing all weights to the same value does not break the symmetry. All hidden units will have an identical influence on the cost, which will lead to identical gradients. Thus, both neurons will evolve symmetrically throughout training, effectively preventing different neurons from learning different things.",
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
+  },
+  {
+    "id": 49,
+    "question": "You’re solving a binary classification task. You train a logistic regression. You initialize all weights to \\(0.5\\). Is this a good idea? Briefly explain why or why not.",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "Yes. For logistic regression with a convex cost function you’ll have just a single optimal point and it does not matter where you start, the starting point just changes the number of epochs to reach to that optimal point.",
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
+  },
+  {
+    "id": 48,
+    "question": "You’re solving a binary classification task. The final two layers in your network are a ReLU activation followed by a sigmoid activation. What will happen?",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "Using ReLU then sigmoid will cause all predictions to be positive.",
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
+  },
+  {
+    "id": 47,
+    "question": "Alice recommends the use of convolutional neural networks instead of fully-connected networks for image recognition tasks since convolutions can capture the spatial relationship between nearby image pixels. Bob points out that fully-connected layers can capture spatial information since each neuron is connected to all of the neurons in the previous layer. Both are correct but describe two reasons we should prefer Alice’s approach to Bob’s.",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "<ul>\n<li>Computational tractability.</li>\n<li>Explicit hierarchical representation\nof features.</li>\n<li>Reduces overfitting.</li>\n<li>Translation invariant.</li>\n</ul>",
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
+  },
+  {
+    "id": 46,
+    "question": "You have two data sets of similar size for a binary classification task. However, one contains almost entirely positive examples, and the other contains only negative examples. You would like to use both sets to train your model. Describe a scenario in which combining these two data sets could lead to a failure of the model to learn.",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "Imagine training on mini-batches constructed from dataset 1 (mostly positive examples, then training on mini-batches from dataset 2 (only negative examples). The model will likely forget what it learned from the positive examples and will learn to always predict negative examples.",
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
+  },
+  {
+    "id": 45,
+    "question": "The gradient estimated during a step of mini-batch gradient descent has on average a lower bias when the data is i.i.d. (independent and identically distributed). True or False? Explain why.",
+    "type": "one_correct",
+    "answers": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": [0],
+    "answerComment": "The examples in a batch should be i.i.d. because mini-batch gradient descent uses an empirical estimate of the gradient from a small batch. If the examples are correlated, then the gradient estimates will become biased and the model will fail to learn.",
+    "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
+  },
+  {
+    "id": 44,
+    "question": "Consider a trained logistic regression. Its weight vector is \\(W\\) and its test accuracy on a given data set is \\(A\\). Assuming there is no bias, dividing \\(W\\) by \\(2\\) won’t change the test accuracy.",
+    "type": "one_correct",
+    "answers": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": [0],
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
+  },
+  {
+    "id": 43,
+    "question": "The backpropagated gradient through a tanh non-linearity is always smaller or equal in magnitude than the upstream gradient.",
+    "type": "one_correct",
+    "answers": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": [0],
+    "answerComment": "If \\(z = \\text{tanh}(x)\\), then \\(\\frac{\\partial z}{\\partial x} = 1 - \\text{tanh}^2(x) = 1 - z^2\\)",
+    "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
+  },
+  {
+    "id": 42,
+    "question": "Which of the following is true about the vanishing gradient problem? (Circle all that apply)",
+    "type": "multi_correct",
+    "answers": [
+      "Tanh is usually preferred over sigmoid because it doesn’t suffer from vanishing gradients.",
+      "Vanishing gradient causes deeper layers to learn more slowly than earlier layers.",
+      "Leaky ReLU is less likely to suffer from vanishing gradients than sigmoid",
+      "Xavier initialization can help prevent the vanishing gradient problem",
+      "None of the above"
+    ],
+    "correctAnswer": [2, 3],
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
+  },
+  {
     "id": 41,
     "question": "The figure below shows how the cost decreases (as the number of iterations increases) during training. What could have caused the sudden drop in the cost? Explain one reason. <br/> <img src='quiz_data/imgs/dl_quiz_id_41.png'/>",
     "type": "text",
