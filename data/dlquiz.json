@@ -1,5 +1,190 @@
 [
   {
+    "id": 65,
+    "question": "After visually inspecting the dataset, you realize that the training set only contains pictures taken during the day, whereas the dev set only has pictures taken at night. Explain what is the issue and how you would correct it.",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "<ul>\n<li>It can cause a domain mismatch.</li>\n<li>The difference in the distribution of the images between training and dev\nmight lead to faulty hyperparameter tuning on the dev set, resulting in\npoor performance on unseen data.</li>\n</ul>\nSolution: randomly mix pictures taken at day and at night in the two sets and then resplit the data.",
+
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
+  },
+  {
+    "id": 64,
+    "question": "You are given a content image \\(X_C\\) and a style image, \\(X_S\\). You would like to apply neural style transfer to obtain an output image \\(Y\\), with the content of \\(X_C\\) and the style of \\(X_S\\). You are told that you need a pre-trained VGG-16 network to do this. What is the function of this pre-trained network?",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "The pre-trained network is used to extract the content and the style from the two images. Intermediate features are used to extract the content, and the gram matrix is used to extract the style.",
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
+  },
+  {
+    "id": 63,
+    "question": "You have a dataset \\(D_1\\) with 1 million labeled training examples for classification, and dataset \\(D_2\\) with 100 labeled training examples. Your friend trains a model from scratch on dataset \\(D_2\\). You decide to train on \\(D_1\\), and then apply transfer learning to train on \\(D_2\\). State one problem your friend is likely to find with his approach. How does your approach address this problem?",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "Friend is likely to see overfitting. Model is not going to generalise well to unseen data. By using transfer learning and freezing the weights in the earlier layers, you reduce the number of learnable parameters, while using the weights which have been pretrained on a much larger dataset.",
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
+  },
+  {
+    "id": 62,
+    "question": "You want to solve a classification task. You first train your network on 20 samples. Training converges, but the training loss is very high. You then decide to train this network on 10,000 examples. Is your approach to fixing the problem correct? If yes, explain the most likely results of training with 10,000 examples. If not, give a solution to this problem.",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "The model is suffering from a bias problem. Increasing the amount of data reduces the variance, and is not likely to solve the problem. A better approach would be to decrease the bias of the model by maybe adding more layers/ learnable parameters. It is possible that training converged to a local optimum. Training longer/using a better optimizer/restarting from a different initialization could also work.",
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
+  },
+  {
+    "id": 61,
+    "question": "You are designing a deep learning system to detect driver fatigue in cars. It is crucial that your model detects fatigue, to prevent any accidents. Which of the following is the most appropriate evaluation metric: Accuracy, Precision, Recall, Loss Value. Explain your choice.",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "Recall. t is important that we do not miss any cases where the driver is tired.",
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
+  },
+  {
+    "id": 60,
+    "question": "Which regularization method leads to weight sparsity? Explain why.",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "\\(L1\\) regularization leads to weight sparsity. This comes from the shape of the \\(L1\\) loss. Since even small weights are penalized the same amount as large weights, more weight values will tend closer to 0. \\(L2\\) on the other hand penalizes smaller weights less, which leads to smaller weights\nbut does not ensure sparsity.",
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
+  },
+  {
+    "id": 59,
+    "question": "How does splitting a dataset into train, dev and test sets help identify overfitting?",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "Overfitting: the model fits the training set so much that it does not generalize well. Low training error and high dev error can be used to identify this. Must ensure that the distribution of train and dev is the same/similar!",
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
+  },
+  {
+    "id": 58,
+    "question": "Which of the following is a non-iterative method to generate adversarial examples?",
+    "type": "one_correct",
+    "answers": [
+      "Non-Saturating Cost Method",
+      "Input Optimization Method",
+      "Adversarial Training",
+      "Logit Pairing",
+      "Fast Gradient Sign Method",
+      "Real-time Cryptographic Dropout Method"
+    ],
+    "correctAnswer": [4],
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
+  },
+  {
+    "id": 57,
+    "question": "What is Error Analysis?",
+    "type": "one_correct",
+    "answers": [
+      "The process of analyzing the performance of a model through metrics such as precision, recall or F1-score.",
+      "The process of scanning mis-classified examples to identify weaknesses of a model.",
+      "The process of tuning hyperparameters to reduce the loss function during training.",
+      "The process of identifying which parts of your model contributed to the error."
+    ],
+    "correctAnswer": [1],
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
+  },
+  {
+    "id": 56,
+    "question": "Which of the following propositions are true about a CONV layer? (Check all that apply.)",
+    "type": "multi_correct",
+    "answers": [
+      "The number of weights depends on the depth of the input volume.",
+      "The number of biases is equal to the number of filters.",
+      "The total number of parameters depends on the stride.",
+      "The total number of parameters depends on the padding."
+    ],
+    "correctAnswer": [0, 1],
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
+  },
+  {
+    "id": 55,
+    "question": "Which of the following is an advantage of end-to-end learning? (Check all that apply.)",
+    "type": "multi_correct",
+    "answers": [
+      "It usually requires less data.",
+      "It doesn’t need hand crafted features.",
+      "It generally leads to lower bias.",
+      "None of the above."
+    ],
+    "correctAnswer": [1, 2],
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
+  },
+  {
+    "id": 54,
+    "question": "When should multi-task learning be used?",
+    "type": "one_correct",
+    "answers": [
+      "When your problem involves more than one class label.",
+      "When two tasks have the same dataset.",
+      "When you have a small amount of data for a particular task that would benefit from the large dataset of another task.",
+      "When the tasks have datasets of different formats (text and images)."
+    ],
+    "correctAnswer": [2],
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
+  },
+  {
+    "id": 53,
+    "question": "Which of the following statements is true about Xavier Initialization?",
+    "type": "one_correct",
+    "answers": [
+      "It is only used in fully connected neural networks.",
+      "It applies a scaling factor to the mean of the random weights.",
+      "It is commonly used in logistic regression.",
+      "The assumptions made are only valid at the beginning of training."
+    ],
+    "correctAnswer": [3],
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
+  },
+  {
+    "id": 52,
+    "question": "Which of the following is true about Batchnorm?",
+    "type": "one_correct",
+    "answers": [
+      "Batchnorm is another way of performing dropout.",
+      "Batchnorm makes training faster.",
+      "In Batchnorm, the mean is computed over the features.",
+      "Batchnorm is a non-linear transformation to center the dataset around the origin."
+    ],
+    "correctAnswer": [1],
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
+  },
+  {
+    "id": 51,
+    "question": "Consider a Generative Adversarial Network (GAN) which successfully produces images of apples. Which of the following propositions is false?",
+    "type": "one_correct",
+    "answers": [
+      "The generator aims to learn the distribution of apple images.",
+      "The discriminator can be used to classify images as apple vs. non-apple.",
+      "After training the GAN, the discriminator loss eventually reaches a constant value.",
+      "The generator can produce unseen images of apples."
+    ],
+    "correctAnswer": [1],
+    "answerComment": "",
+    "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
+  },
+  {
     "id": 50,
     "question": "You’re solving a binary classification task. You train a 4-layer neural network.. You initialize all weights to \\(0.5\\). Is this a good idea? Briefly explain why or why not.",
     "type": "text",
@@ -7,7 +192,7 @@
     ],
     "correctAnswer": "No, initializing all weights to the same value does not break the symmetry. All hidden units will have an identical influence on the cost, which will lead to identical gradients. Thus, both neurons will evolve symmetrically throughout training, effectively preventing different neurons from learning different things.",
     "answerComment": "",
-    "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
+    "source": "CS230: Deep Learning. Fall Quarter 2019. Stanford University."
   },
   {
     "id": 49,
@@ -17,7 +202,7 @@
     ],
     "correctAnswer": "Yes. For logistic regression with a convex cost function you’ll have just a single optimal point and it does not matter where you start, the starting point just changes the number of epochs to reach to that optimal point.",
     "answerComment": "",
-    "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
+    "source": "CS230: Deep Learning. Fall Quarter 2019. Stanford University."
   },
   {
     "id": 48,
@@ -27,7 +212,7 @@
     ],
     "correctAnswer": "Using ReLU then sigmoid will cause all predictions to be positive.",
     "answerComment": "",
-    "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
+    "source": "CS230: Deep Learning. Fall Quarter 2019. Stanford University."
   },
   {
     "id": 47,
@@ -37,7 +222,7 @@
     ],
     "correctAnswer": "<ul>\n<li>Computational tractability.</li>\n<li>Explicit hierarchical representation\nof features.</li>\n<li>Reduces overfitting.</li>\n<li>Translation invariant.</li>\n</ul>",
     "answerComment": "",
-    "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
+    "source": "CS230: Deep Learning. Fall Quarter 2019. Stanford University."
   },
   {
     "id": 46,
@@ -47,7 +232,7 @@
     ],
     "correctAnswer": "Imagine training on mini-batches constructed from dataset 1 (mostly positive examples, then training on mini-batches from dataset 2 (only negative examples). The model will likely forget what it learned from the positive examples and will learn to always predict negative examples.",
     "answerComment": "",
-    "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
+    "source": "CS230: Deep Learning. Fall Quarter 2019. Stanford University."
   },
   {
     "id": 45,
@@ -59,7 +244,7 @@
     ],
     "correctAnswer": [0],
     "answerComment": "The examples in a batch should be i.i.d. because mini-batch gradient descent uses an empirical estimate of the gradient from a small batch. If the examples are correlated, then the gradient estimates will become biased and the model will fail to learn.",
-    "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
+    "source": "CS230: Deep Learning. Fall Quarter 2019. Stanford University."
   },
   {
     "id": 44,
@@ -71,7 +256,7 @@
     ],
     "correctAnswer": [0],
     "answerComment": "",
-    "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
+    "source": "CS230: Deep Learning. Fall Quarter 2019. Stanford University."
   },
   {
     "id": 43,
@@ -83,7 +268,7 @@
     ],
     "correctAnswer": [0],
     "answerComment": "If \\(z = \\text{tanh}(x)\\), then \\(\\frac{\\partial z}{\\partial x} = 1 - \\text{tanh}^2(x) = 1 - z^2\\)",
-    "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
+    "source": "CS230: Deep Learning. Fall Quarter 2019. Stanford University."
   },
   {
     "id": 42,
@@ -98,7 +283,7 @@
     ],
     "correctAnswer": [2, 3],
     "answerComment": "",
-    "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
+    "source": "CS230: Deep Learning. Fall Quarter 2019. Stanford University."
   },
   {
     "id": 41,

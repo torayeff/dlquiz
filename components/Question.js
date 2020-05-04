@@ -80,7 +80,7 @@ class Question extends React.Component{
     return (
         <div>
           <div className="text-justify" dangerouslySetInnerHTML={{__html: this.props.question.question}} />
-          <form id={this.props.question.id}>
+          <form className="dlq-question-form" id={this.props.question.id}>
             <AnswerChoices id={this.props.question.id}
                            answers={this.props.question.answers}
                            type={this.props.question.type}

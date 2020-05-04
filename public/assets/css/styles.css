@@ -49,3 +49,7 @@ button {
     width: 100%;
     z-index: 1;
 }
+
+.dlq-question-form {
+    padding-top: 10px;
+}
