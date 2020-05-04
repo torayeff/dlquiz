@@ -1,5 +1,117 @@
 [
   {
+    "id": 73,
+    "question": "The loss function will always decrease after a parameter update when performing Vanilla Gradient Descent on the full objective (no mini-batches).",
+    "type": "one_correct",
+    "answers": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": [1],
+    "answerComment": "It’s also dependent on the learning rate because it can overshoot.",
+    "source": "CS231n. Spring 2017 Sample Midterm Exam. Stanford University."
+  },
+  {
+    "id": 72,
+    "question": "During backpropagation, as the gradient flows backwards through any of sigmoid/tanh/ReLU non-linearities, it cannot change sign.",
+    "type": "one_correct",
+    "answers": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": [0],
+    "answerComment": "ReLU, sigmoid, and tanh are nondecreasing functions; therefore, the gradient is always nonnegative",
+    "source": "CS231n. Spring 2017 Sample Midterm Exam. Stanford University."
+  },
+  {
+    "id": 72,
+    "question": "Regularizing the biases in a neural network is not as important because they do not interact multiplicatively with the inputs.",
+    "type": "one_correct",
+    "answers": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": [0],
+    "answerComment": "We add biases to take into account the priors of the input data to that layer. We don’t want to impose any penalty on making this large; if an input always has a lot more red, we want the bias term to take care of that.",
+    "source": "CS231n. Spring 2017 Sample Midterm Exam. Stanford University."
+  },
+  {
+    "id": 71,
+    "question": "The derivative of the loss with respect to some weight in your network is -3. That means that decreasing this weight (by a tiny amount) would decrease the loss.",
+    "type": "one_correct",
+    "answers": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": [1],
+    "answerComment": "If the gradient is \\(-3\\), a small increase of \\(\\epsilon\\) in the weight will increase the loss by \\(-3\\epsilon\\), or, in other words, decrease the loss by \\(3\\epsilon\\). In this problem, decreasing the weight will increase the loss.",
+    "source": "CS231n. Spring 2017 Sample Midterm Exam. Stanford University."
+  },
+  {
+    "id": 70,
+    "question": "It’s sufficient for symmetry breaking in a Neural Network to initialize all weights to 0, provided that the biases are random",
+    "type": "one_correct",
+    "answers": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": [0],
+    "answerComment": "Breaking symmetry = “we don’t want all the neurons to do the same thing because then we’re only really learning like one feature, really. But if you initialize them randomly, each neuron will learn to specialize in different things. The reason we initialize them randomly is so the different neurons can learn different things and the different layers can specialize in different things”",
+    "source": "CS231n. Spring 2017 Sample Midterm Exam. Stanford University."
+  },
+  {
+    "id": 69,
+    "question": "Turning off \\(L2\\) weight regularization will likely lead to higher accuracy on the training set.",
+    "type": "one_correct",
+    "answers": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": [0],
+    "answerComment": "",
+    "source": "CS231n. Spring 2017 Sample Midterm Exam. Stanford University."
+  },
+  {
+    "id": 68,
+    "question": "If the input to a ConvNet is a zero image (all zeros), then the class probabilities will come out uniform.",
+    "type": "one_correct",
+    "answers": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": [1],
+    "answerComment": "Consider the case where the biases are nonzero.",
+    "source": "CS231n. Spring 2017 Sample Midterm Exam. Stanford University."
+  },
+  {
+    "id": 67,
+    "question": "A max pooling layer in a ConvNet:",
+    "type": "multi_correct",
+    "answers": [
+      "Is approximately as fast to compute in both forward and backward pass as a CONV layer (with the same filter size and strides).",
+      "Is similar to batch normalization in that it will keep all of your neuron activities in a similar range.",
+      "Could contribute to difficulties during gradient checking.",
+      "Could contribute to the vanishing gradient problem (recall: this is a problem where by the end of a backward pass the gradients are very small)"
+    ],
+    "correctAnswer": [2],
+    "answerComment": "",
+    "source": "CS231n. Spring 2017 Sample Midterm Exam. Stanford University."
+  },
+  {
+    "id": 66,
+    "question": "You start training your Neural Network but the loss is almost completely flat. What could be the cause?",
+    "type": "multi_correct",
+    "answers": [
+      "The learning rate could be too low.",
+      "The regularization strength could be too high",
+      "The class distribution could be very uneven in the dataset",
+      "The weight initialization scale could be incorrectly set"
+    ],
+    "correctAnswer": [0, 3],
+    "answerComment": "",
+    "source": "CS231n. Spring 2017 Sample Midterm Exam. Stanford University."
+  },
+  {
     "id": 65,
     "question": "After visually inspecting the dataset, you realize that the training set only contains pictures taken during the day, whereas the dev set only has pictures taken at night. Explain what is the issue and how you would correct it.",
     "type": "text",
