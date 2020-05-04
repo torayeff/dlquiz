@@ -1,6 +1,142 @@
 [
   {
-    "id": 73,
+    "id": 87,
+    "question": "Recall that a plateau is a flat region in the cost function. Give examples of plateaux (plural of the plateau) that can occur in neural net training, and briefly explain why they are plateaux.",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "<ul>\n<li>If the loss function is flat (e.g. zero-one loss), then the gradient will be zero because changing the weights a small amount has no impact on the loss.</li>\n<li> In classification with a logistic output nonlinearity and squared error loss, the output derivative is small when the prediction is very wrong. Hence, the gradient will also be small.</li>\n<li>If the hard threshold activation function is used, the gradient will be zero because making a small change to the weights won’t change the predictions (and hence won’t change the cost).</li>\n<li> If the input z to the ReLU activation function is 0, then we have z = 0, and hence the weights that feed into this unit have zero gradient. If this happens for every training example (i.e. this unit is dead), then these weights will have zero gradient and won’t get updated.</li>\n<li>Similarly, if a logistic unit is saturated, the derivatives for the incoming weights will be very small.</li>\n</ul>",
+    "answerComment": "",
+    "source": "CSC321. Winter 2018. University of Toronto."
+  },
+  {
+    "id": 86,
+    "question": "Alice and Barbara are trying to redesign the LeNet conv net architecture to reduce the number of weights. Alice wants to reduce the number of feature maps in the first convolution layer. Barbara wants to reduce the number of hidden units in the last layer before the output. Whose approach is better? Why?",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "Barbara’s approach is better because most of the weights are in the fully connected layers of LeNet (or a typical conv net architecture).",
+    "answerComment": "",
+    "source": "CSC321. Winter 2018. University of Toronto."
+  },
+  {
+    "id": 85,
+    "question": "Briefly explain two reasons to use automatic differentiation rather than finite differences to compute the gradient for a neural network during training.",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "<ol>\n<li>Autodiff computes exact gradients (apart from floating point error), whereas finite differences only computes an approximation.</li>\n<li>Autodiff only requires a single forward pass and a single backward pass, and the backward pass is only a constant factor more expensive than the forward pass. Finite differences requires a separate forward pass for every entry of the gradient.</li>\n</ol>",
+    "answerComment": "",
+    "source": "CSC321. Winter 2018. University of Toronto."
+  },
+  {
+    "id": 84,
+    "question": "In logistic regression, if every training example is classified correctly, then the cost is zero. Briefly explain your answer.",
+    "type": "one_correct",
+    "answers": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": [1],
+    "answerComment": "The model outputs a distribution over the categories, and due to the softmax, the probabilities will all be positive. Hence, the cross-entropy loss will be nonzero.",
+    "source": "CSC321. Winter 2018. University of Toronto."
+  },
+  {
+    "id": 83,
+    "question": "Give the definition of a convex function. I.e., let \\(f\\) be a scalar-valued function that takes a vector \\(x\\) as input. The definition is that \\(f\\) is convex if and only if...",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "A function \\(f\\) is convex if and only if $$f(\\lambda x_1 + (1-\\lambda)x_2) \\le \\lambda f(x_1) + (1-\\lambda)f(x_2)$$ for any \\(x_1, x_2\\), and \\(0 \\le \\lambda \\le 1\\).",
+    "answerComment": "",
+    "source": "CSC321. Winter 2018. University of Toronto."
+  },
+  {
+    "id": 82,
+    "question": "Compute the convolution of the following two arrays: $$ (4,1,−1,3) * (−2,1)\u0001$$ Your answer should be an array of length \\(5\\).",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "\\((−8,2,3,−7,3)\\)",
+    "answerComment": "Do not forget the flipping.",
+    "source": "CSC321. Winter 2018. University of Toronto."
+  },
+  {
+    "id": 81,
+    "question": "Suppose we have two multilayer perceptrons, \\(A\\) and \\(B\\). If \\(A\\) has more units than \\(B\\), then \\(A\\) must also have more connections than \\(B\\). Explain why it is true or provide a counterexample.",
+    "type": "one_correct",
+    "answers": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": [1],
+    "answerComment": "An example would be a network with a bottleneck layer. E.g, suppose \\(A\\) has three layers with sizes \\(100\\), \\(10\\), \\(100\\), and \\(B\\) has two layers with sizes \\(100\\) and \\(100\\). Then \\(A\\) has \\(2000\\) connections while \\(B\\) has \\(10000\\) connections.",
+    "source": "CSC321. Winter 2018. University of Toronto."
+  },
+  {
+    "id": 80,
+    "question": "Recall that the learning rate is an example of a hyperparameter that must be tuned. Alice wants to tune the learning rate by doing a grid search over values and choosing the one which achieves the lowest training error. Bob tells her it’s important to tune all hyperparameters on a separate validation set. Who is right? Justify your answer. Note that there are good arguments for either side.",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "<ol>\n<li>Alice is right. It is OK to tune the learning rate on the training set, because the learning rate relates to optimization rather than generalization.</li>\n<li>Bob is right. The learning rate can affect generalization in various ways. E.g., a lower learning rate can have a similar effect to early stopping, since the optimizer will have made less progress. Also, SGD has a regularization effect, and this effect might be stronger with a larger learning rate.</li>\n</ol>",
+    "answerComment": "",
+    "source": "CSC321. Winter 2017. University of Toronto."
+  },
+  {
+    "id": 79,
+    "question": "Explain the difference between invariant and equivariant feature detectors. Give an example of an equivariant operation.",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "A feature detector is invariant if it does not change (much) in response to a particular transformation of the input. It is equivariant if it transforms the same way as the input does. Convolution is an example of an equivariant operation; it is equivariant with respect to translation.",
+    "answerComment": "",
+    "source": "CSC321. Winter 2017. University of Toronto."
+  },
+  {
+    "id": 78,
+    "question": "Suppose you are training a neural net using stochastic gradient descent (SGD), and you compute the cost function on the entire training set after each update. If you ever see the training cost increase after an SGD update, that means your learning rate is too large. Justify your answer.",
+    "type": "one_correct",
+    "answers": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": [1],
+    "answerComment": "SGD moves downhill on average, but individual updates can certainly increase the cost.",
+    "source": "CSC321. Winter 2017. University of Toronto."
+  },
+  {
+    "id": 77,
+    "question": "Carla tells you, \"Overfitting is bad, so you want to make sure your model is simple enough that the test error is no higher than the training error.\" Is she right or wrong? Justify your answer. Note that there are good arguments for either side.",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "<ol>\n<li>Carla’s statement is false, because in order to achieve the best generalization error, we need the model to be powerful enough to explain the data. Making it so simple that there is no training/test gap could make it too simplistic to explain the data. Rather, we want to tune the complexity by minimizing the error on a validation set.</li>\n<li>Carla is correct, if we are interested in interpreting the parameters that we fit. E.g., statisticians often want to interpret linear regression coefficients. In this case, we might want the model to be simple enough that it does not reflect any idiosyncrasies in the training data.</li>\n</ol>",
+    "answerComment": "",
+    "source": "CSC321. Winter 2017. University of Toronto."
+  },
+  {
+    "id": 76,
+    "question": "Explain one thing you would use a validation set for, and why you can’t just do it using the test set.",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "<ul>\n<li>Choosing hyperparameters, e.g. learning rate or number of hidden units.</li>\n<li>Early stopping, where we stop the training once the validation set performance gets\nworse.</li>\n</ul>\n\nWe can’t just use the test set, because then we’d be choosing aspects of the model or algorithm based on test set performance, and the test set performance will no longer be indicative of generalization performance.",
+    "answerComment": "",
+    "source": "CSC321. Winter 2015. University of Toronto."
+  },
+  {
+    "id": 75,
+    "question": "Suppose we have a fully connected, feed-forward network with no hidden layer, and 5 input units connected directly to 3 output units. Will adding a hidden layer with 8 linear units make the network any more powerful (as opposed to not having a hidden layer)?",
+    "type": "text",
+    "answers": [
+    ],
+    "correctAnswer": "The network with 8 linear units computes a composition of two linear functions, which is linear. But the network with no hidden layer can compute any linear function, so it is at least as powerful as the network with a hidden layer. In fact, the two are equally powerful.",
+    "answerComment": "",
+    "source": "CSC321. Winter 2015. University of Toronto."
+  },
+  {
+    "id": 74,
     "question": "The loss function will always decrease after a parameter update when performing Vanilla Gradient Descent on the full objective (no mini-batches).",
     "type": "one_correct",
     "answers": [
@@ -12,7 +148,7 @@
     "source": "CS231n. Spring 2017 Sample Midterm Exam. Stanford University."
   },
   {
-    "id": 72,
+    "id": 73,
     "question": "During backpropagation, as the gradient flows backwards through any of sigmoid/tanh/ReLU non-linearities, it cannot change sign.",
     "type": "one_correct",
     "answers": [

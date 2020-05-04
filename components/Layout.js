@@ -11,6 +11,7 @@ export default ({children, title}) => (
       <title>{title}</title>
       <meta name="description"
             content="Deep learning questions for an exam/interview preparation or just to master it."/>
+      <meta name="google-site-verification" content="0bFK4sMB8Ov0syPppxVBkS1x2V233Q0lawOOfxHu8v8" />
       <link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon.png"/>
       <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css"/>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700"/>
