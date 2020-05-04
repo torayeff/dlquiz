@@ -37,7 +37,9 @@
       "True",
       "False"
     ],
-    "correctAnswer": [1],
+    "correctAnswer": [
+      1
+    ],
     "answerComment": "The model outputs a distribution over the categories, and due to the softmax, the probabilities will all be positive. Hence, the cross-entropy loss will be nonzero.",
     "source": "CSC321. Winter 2018. University of Toronto."
   },
@@ -69,7 +71,9 @@
       "True",
       "False"
     ],
-    "correctAnswer": [1],
+    "correctAnswer": [
+      1
+    ],
     "answerComment": "An example would be a network with a bottleneck layer. E.g, suppose \\(A\\) has three layers with sizes \\(100\\), \\(10\\), \\(100\\), and \\(B\\) has two layers with sizes \\(100\\) and \\(100\\). Then \\(A\\) has \\(2000\\) connections while \\(B\\) has \\(10000\\) connections.",
     "source": "CSC321. Winter 2018. University of Toronto."
   },
@@ -101,7 +105,9 @@
       "True",
       "False"
     ],
-    "correctAnswer": [1],
+    "correctAnswer": [
+      1
+    ],
     "answerComment": "SGD moves downhill on average, but individual updates can certainly increase the cost.",
     "source": "CSC321. Winter 2017. University of Toronto."
   },
@@ -143,7 +149,9 @@
       "True",
       "False"
     ],
-    "correctAnswer": [1],
+    "correctAnswer": [
+      1
+    ],
     "answerComment": "It’s also dependent on the learning rate because it can overshoot.",
     "source": "CS231n. Spring 2017 Sample Midterm Exam. Stanford University."
   },
@@ -155,7 +163,9 @@
       "True",
       "False"
     ],
-    "correctAnswer": [0],
+    "correctAnswer": [
+      0
+    ],
     "answerComment": "ReLU, sigmoid, and tanh are nondecreasing functions; therefore, the gradient is always nonnegative",
     "source": "CS231n. Spring 2017 Sample Midterm Exam. Stanford University."
   },
@@ -167,7 +177,9 @@
       "True",
       "False"
     ],
-    "correctAnswer": [0],
+    "correctAnswer": [
+      0
+    ],
     "answerComment": "We add biases to take into account the priors of the input data to that layer. We don’t want to impose any penalty on making this large; if an input always has a lot more red, we want the bias term to take care of that.",
     "source": "CS231n. Spring 2017 Sample Midterm Exam. Stanford University."
   },
@@ -179,7 +191,9 @@
       "True",
       "False"
     ],
-    "correctAnswer": [1],
+    "correctAnswer": [
+      1
+    ],
     "answerComment": "If the gradient is \\(-3\\), a small increase of \\(\\epsilon\\) in the weight will increase the loss by \\(-3\\epsilon\\), or, in other words, decrease the loss by \\(3\\epsilon\\). In this problem, decreasing the weight will increase the loss.",
     "source": "CS231n. Spring 2017 Sample Midterm Exam. Stanford University."
   },
@@ -191,7 +205,9 @@
       "True",
       "False"
     ],
-    "correctAnswer": [0],
+    "correctAnswer": [
+      0
+    ],
     "answerComment": "Breaking symmetry = “we don’t want all the neurons to do the same thing because then we’re only really learning like one feature, really. But if you initialize them randomly, each neuron will learn to specialize in different things. The reason we initialize them randomly is so the different neurons can learn different things and the different layers can specialize in different things”",
     "source": "CS231n. Spring 2017 Sample Midterm Exam. Stanford University."
   },
@@ -203,7 +219,9 @@
       "True",
       "False"
     ],
-    "correctAnswer": [0],
+    "correctAnswer": [
+      0
+    ],
     "answerComment": "",
     "source": "CS231n. Spring 2017 Sample Midterm Exam. Stanford University."
   },
@@ -215,7 +233,9 @@
       "True",
       "False"
     ],
-    "correctAnswer": [1],
+    "correctAnswer": [
+      1
+    ],
     "answerComment": "Consider the case where the biases are nonzero.",
     "source": "CS231n. Spring 2017 Sample Midterm Exam. Stanford University."
   },
@@ -228,8 +248,11 @@
       "Is similar to batch normalization in that it will keep all of your neuron activities in a similar range.",
       "Could contribute to difficulties during gradient checking.",
       "Could contribute to the vanishing gradient problem (recall: this is a problem where by the end of a backward pass the gradients are very small)"
+
     ],
-    "correctAnswer": [2],
+    "correctAnswer": [
+      2
+    ],
     "answerComment": "",
     "source": "CS231n. Spring 2017 Sample Midterm Exam. Stanford University."
   },
@@ -243,7 +266,10 @@
       "The class distribution could be very uneven in the dataset",
       "The weight initialization scale could be incorrectly set"
     ],
-    "correctAnswer": [0, 3],
+    "correctAnswer": [
+      0,
+      3
+    ],
     "answerComment": "",
     "source": "CS231n. Spring 2017 Sample Midterm Exam. Stanford University."
   },
@@ -330,7 +356,9 @@
       "Fast Gradient Sign Method",
       "Real-time Cryptographic Dropout Method"
     ],
-    "correctAnswer": [4],
+    "correctAnswer": [
+      4
+    ],
     "answerComment": "",
     "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
   },
@@ -344,7 +372,9 @@
       "The process of tuning hyperparameters to reduce the loss function during training.",
       "The process of identifying which parts of your model contributed to the error."
     ],
-    "correctAnswer": [1],
+    "correctAnswer": [
+      1
+    ],
     "answerComment": "",
     "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
   },
@@ -358,7 +388,10 @@
       "The total number of parameters depends on the stride.",
       "The total number of parameters depends on the padding."
     ],
-    "correctAnswer": [0, 1],
+    "correctAnswer": [
+      0,
+      1
+    ],
     "answerComment": "",
     "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
   },
@@ -372,7 +405,10 @@
       "It generally leads to lower bias.",
       "None of the above."
     ],
-    "correctAnswer": [1, 2],
+    "correctAnswer": [
+      1,
+      2
+    ],
     "answerComment": "",
     "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
   },
@@ -386,7 +422,9 @@
       "When you have a small amount of data for a particular task that would benefit from the large dataset of another task.",
       "When the tasks have datasets of different formats (text and images)."
     ],
-    "correctAnswer": [2],
+    "correctAnswer": [
+      2
+    ],
     "answerComment": "",
     "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
   },
@@ -400,7 +438,9 @@
       "It is commonly used in logistic regression.",
       "The assumptions made are only valid at the beginning of training."
     ],
-    "correctAnswer": [3],
+    "correctAnswer": [
+      3
+    ],
     "answerComment": "",
     "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
   },
@@ -414,7 +454,9 @@
       "In Batchnorm, the mean is computed over the features.",
       "Batchnorm is a non-linear transformation to center the dataset around the origin."
     ],
-    "correctAnswer": [1],
+    "correctAnswer": [
+      1
+    ],
     "answerComment": "",
     "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
   },
@@ -428,7 +470,9 @@
       "After training the GAN, the discriminator loss eventually reaches a constant value.",
       "The generator can produce unseen images of apples."
     ],
-    "correctAnswer": [1],
+    "correctAnswer": [
+      1
+    ],
     "answerComment": "",
     "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
   },
@@ -490,7 +534,9 @@
       "True",
       "False"
     ],
-    "correctAnswer": [0],
+    "correctAnswer": [
+      0
+    ],
     "answerComment": "The examples in a batch should be i.i.d. because mini-batch gradient descent uses an empirical estimate of the gradient from a small batch. If the examples are correlated, then the gradient estimates will become biased and the model will fail to learn.",
     "source": "CS230: Deep Learning. Fall Quarter 2019. Stanford University."
   },
@@ -502,7 +548,9 @@
       "True",
       "False"
     ],
-    "correctAnswer": [0],
+    "correctAnswer": [
+      0
+    ],
     "answerComment": "",
     "source": "CS230: Deep Learning. Fall Quarter 2019. Stanford University."
   },
@@ -514,7 +562,9 @@
       "True",
       "False"
     ],
-    "correctAnswer": [0],
+    "correctAnswer": [
+      0
+    ],
     "answerComment": "If \\(z = \\text{tanh}(x)\\), then \\(\\frac{\\partial z}{\\partial x} = 1 - \\text{tanh}^2(x) = 1 - z^2\\)",
     "source": "CS230: Deep Learning. Fall Quarter 2019. Stanford University."
   },
@@ -529,7 +579,10 @@
       "Xavier initialization can help prevent the vanishing gradient problem",
       "None of the above"
     ],
-    "correctAnswer": [2, 3],
+    "correctAnswer": [
+      2,
+      3
+    ],
     "answerComment": "",
     "source": "CS230: Deep Learning. Fall Quarter 2019. Stanford University."
   },
@@ -703,7 +756,9 @@
       "\\(Var(a^{[l]})\\) is the same as \\(Var(a^{[l-1]})\\), at the end of the training.",
       "\\(Var(a^{[l]})\\) is the same as \\(Var(a^{[l-1]})\\), at the beginning of the training."
     ],
-    "correctAnswer": [3],
+    "correctAnswer": [
+      3
+    ],
     "answerComment": "",
     "source": "CS230: Deep Learning. Fall Quarter 2018. Stanford University."
   },
@@ -718,8 +773,11 @@
       "For convex loss functions (i.e. with a bowl shape), stochastic gradient descent is guaranteed to eventually converge to the global optimum while batch gradient descent is not.",
       "For convex loss functions (i.e. with a bowl shape), both stochastic gradient descent and batch gradient descent will eventually converge to the global optimum.",
       "For convex loss functions (i.e. with a bowl shape), neither stochastic gradient ndescent nor batch gradient descent are guaranteed to converge to the global optimum."
+
     ],
-    "correctAnswer": [2],
+    "correctAnswer": [
+      2
+    ],
     "answerComment": "",
     "source": "CS230: Deep Learning. Fall Quarter 2018. Stanford University."
   },
@@ -732,8 +790,12 @@
       "Test data should be normalized with its own mean and variance before being fed to the network at test time because the test distribution might be different from the train distribution.",
       "Normalizing the input impacts the landscape of the loss function.",
       "In imaging, just like for structured data, normalization consists in subtracting the mean from the input and multiplying the result by the standard deviation."
+
     ],
-    "correctAnswer": [0, 2],
+    "correctAnswer": [
+      0,
+      2
+    ],
     "answerComment": "",
     "source": "CS230: Deep Learning. Fall Quarter 2018. Stanford University."
   },
@@ -747,7 +809,9 @@
       "Early stopping",
       "None of the above"
     ],
-    "correctAnswer": [3],
+    "correctAnswer": [
+      3
+    ],
     "answerComment": "",
     "source": "CS230: Deep Learning. Fall Quarter 2018. Stanford University."
   },
@@ -979,7 +1043,7 @@
     "question": "Which of the following is true about max-pooling?",
     "type": "one_correct",
     "answers": [
-      "It allows a neuron in a network to have information about features in a larger part of the image, compared to a neuron at the same depth in a network without max pooling.",
+      "It allows a neuron in a network to have information about features in a larger part of the image, compared to a neuron at the same depth in anetwork without max pooling.",
       "It increases the number of parameters when compared to a similar network without max pooling.",
       "It increases the sensitivity of the network towards the position of features within an image."
     ],
