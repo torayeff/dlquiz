@@ -1,6 +1,6 @@
 [
   {
-    "id": 94,
+    "id": 93,
     "question": "Which of the following statements about ensemble methods is true?",
     "type": "one_correct",
     "answers": [
@@ -12,16 +12,6 @@
     "correctAnswer": [3],
     "answerComment": "",
     "source": "CSC411. Winter 2019. University of Toronto."
-  },
-  {
-    "id": 93,
-    "question": "Bob would like to classify emails as spam or non-spam. He would like to estimate the probability that a new email \\(e\\) containing the keywords \\((w_1, w_2, ..., w_n)\\) is spam by taking all the emails in the training set with those keywords, and then computing the proportion of those emails that are spam. Specifically, he estimates the probability using: $$P(\\text{spam}|\\text{new email }e) = \\frac{\\#\\text{spam emails with keywords }(w_1, ..., w_n) \\text{ in training set}}{\\#\\text{total emails with keywords }(w_1, ..., w_n) \\text{ in training set}}.$$ Explain why Bob’s plan will generally not work.",
-    "type": "text",
-    "answers": [
-    ],
-    "correctAnswer": "The main issue here is the curse of dimensionality. For reasonably-sized training sets,\n\\(\\#\\text{spam emails with keywords }(w_1, ..., w_n) \\text{ in training set} \\) will just be \\(0\\), because it is unlikely for an email to contain \\(n\\) keywords for a large \\(n\\). That means that we’ll estimate \\(0\\) probability (or the probability will be undefined if the denominator is also 0) for most new emails.",
-    "answerComment": "",
-    "source": "CSC411. Winter 2018. University of Toronto."
   },
   {
     "id": 92,

@@ -6,8 +6,11 @@ class Quiz extends React.Component{
     super(props);
     this.state = {
       "current_index": 0,
-      "questions": this.props.questions
     };
+
+    // for shuffling only question indices
+    this.qidxs = Array.from(Array(this.props.questions.length), (_, i) => i);
+
     this.handleNavClick = this.handleNavClick.bind(this);
     this.handleShuffle = this.handleShuffle.bind(this);
   }
@@ -30,29 +33,30 @@ class Quiz extends React.Component{
 
   handleShuffle(event) {
     event.preventDefault();
+
+    // shuffle question indices
+    this.qidxs = this.shuffle(this.qidxs);
+
+    // restart questions
     this.setState({
-      current_index: 0,
-      questions: this.shuffle(this.props.questions)
+      current_index: 0
     });
   }
 
   render() {
+
+    const question = this.props.questions[this.qidxs[this.state.current_index]];
 
     return (
       <div className="col-md-12 col-lg-10 col-xl-8 offset-lg-1 offset-xl-2">
         <h2 className="text-center dlq-h2">Deep Learning Quiz</h2>
         <div className="border rounded shadow dlq-quiz-container">
           <h4 className="text-center">
-            <b>Question</b>: {this.state.current_index + 1} / {this.state.questions.length}
+            <b>Question</b>: {this.state.current_index + 1} / {this.props.questions.length}
           </h4>
+          <Question key={question.id} question={question}/>
           {
-            this.state.questions.map((q, idx) =>
-              <div key={q.id} className={this.state.current_index === idx ? "" : "dlq-hide"}>
-                <Question question={q}/>
-              </div>)
-          }
-          {
-            this.state.current_index < this.state.questions.length - 1 ?
+            this.state.current_index < this.props.questions.length - 1 ?
               <button className="btn btn-outline-primary btn-block text-center border rounded"
                       type="button"
                       onClick={this.handleNavClick} id="+1">

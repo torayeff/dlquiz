@@ -14,6 +14,10 @@ class Question extends React.Component{
     };
   }
 
+  componentDidMount() {
+    MathJax.typeset();
+  }
+
   componentDidUpdate(prevProps, prevState, snapshot) {
     MathJax.typeset();
   }

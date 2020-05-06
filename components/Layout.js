@@ -19,8 +19,6 @@ export default ({children, title}) => (
       <link rel="stylesheet" href="assets/css/Footer-Basic.css"/>
       <link rel="stylesheet" href="assets/css/Header-Blue.css"/>
       <link rel="stylesheet" href="assets/css/styles.css"/>
-      <script src="assets/js/jquery.min.js"/>
-      <script src="assets/bootstrap/js/bootstrap.min.js"/>
     </Head>
     <Header/>
     <div id="dlq-wrapper">

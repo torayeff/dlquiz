@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const Header = () => (
-  <div className="">
+  <div>
     <div className="header-blue">
       <nav className="navbar navbar-light navbar-expand-md">
         <div className="container-fluid">
