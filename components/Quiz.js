@@ -4,23 +4,13 @@ import Question from "./Question";
 class Quiz extends React.Component{
   constructor(props) {
     super(props);
-    this.state = {
-      "current_index": 0,
-    };
-
-    // for shuffling only question indices
-    this.qidxs = Array.from(Array(this.props.questions.length), (_, i) => i);
-
+    this.state = {"current_index": 0};
+    this.updateUserAnswer = this.updateUserAnswer.bind(this);
     this.handleNavClick = this.handleNavClick.bind(this);
-    this.handleShuffle = this.handleShuffle.bind(this);
   }
 
-  shuffle(a) {
-    for (let i = a.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [a[i], a[j]] = [a[j], a[i]];
-    }
-    return a;
+  updateUserAnswer(questionId, userAnswer) {
+    console.log(questionId, userAnswer);
   }
 
   handleNavClick(event) {
@@ -31,21 +21,9 @@ class Quiz extends React.Component{
     event.preventDefault();
   }
 
-  handleShuffle(event) {
-    event.preventDefault();
-
-    // shuffle question indices
-    this.qidxs = this.shuffle(this.qidxs);
-
-    // restart questions
-    this.setState({
-      current_index: 0
-    });
-  }
-
   render() {
 
-    const question = this.props.questions[this.qidxs[this.state.current_index]];
+    const question = this.props.questions[this.state.current_index];
 
     return (
       <div className="col-md-12 col-lg-10 col-xl-8 offset-lg-1 offset-xl-2">
@@ -54,7 +32,11 @@ class Quiz extends React.Component{
           <h4 className="text-center">
             <b>Question</b>: {this.state.current_index + 1} / {this.props.questions.length}
           </h4>
-          <Question key={question.id} question={question}/>
+          <Question
+            key={question.id}
+            question={question}
+            userAnswer={[]}
+            updateUserAnswer={this.updateUserAnswer}/>
           {
             this.state.current_index < this.props.questions.length - 1 ?
               <button className="btn btn-outline-primary btn-block text-center border rounded"
@@ -71,11 +53,6 @@ class Quiz extends React.Component{
                 Previous question
               </button>  : ""
           }
-          <button className="btn btn-secondary btn-block text-center border rounded"
-                  type="button"
-                  onClick={this.handleShuffle}>
-            Shuffle questions
-          </button>
           <div className="clearfix"/>
         </div>
       </div>
