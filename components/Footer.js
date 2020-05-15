@@ -8,7 +8,6 @@ const Footer = () => (
     </footer>
     <script src="assets/js/jquery.min.js"/>
     <script src="assets/bootstrap/js/bootstrap.min.js"/>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" />
   </div>
 );
 

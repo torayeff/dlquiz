@@ -6,7 +6,10 @@
     "type": "git",
     "url": "https://github.com/torayeff/dlquiz.git"
   },
-  "keywords": ["deep-learning-quiz", "js-quiz"],
+  "keywords": [
+    "deep-learning-quiz",
+    "js-quiz"
+  ],
   "author": {
     "name": "Agajan Torayev",
     "url": "https://github.com/torayeff"
@@ -22,6 +25,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "katex": "^0.11.1",
     "next": "9.3.6",
     "react": "16.13.1",
     "react-dom": "16.13.1"

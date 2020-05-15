@@ -19,6 +19,7 @@ export default ({children, title}) => (
       <link rel="stylesheet" href="assets/css/Footer-Basic.css"/>
       <link rel="stylesheet" href="assets/css/Header-Blue.css"/>
       <link rel="stylesheet" href="assets/css/styles.css"/>
+      <link rel="stylesheet" href="assets/css/katex.min.css"/>
     </Head>
     <Header/>
     <div id="dlq-wrapper">
