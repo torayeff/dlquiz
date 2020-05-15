@@ -2,8 +2,12 @@
   {
     "id": 91,
     "text": "Your training set is \\( D = \\{(x^{(1)}, y^{(1)}), ..., (x^{(m)}, y^{(m)})\\} \\). Assume that your model for the data is $$y^{(i)} \\sim \\text{Laplace}(\\theta^Tx^{(i)}, 1) .$$ The probability density function of the Laplace distribution with mean \\(\\mu\\) and scale parameter \\(b\\) is $$f(x|\\mu,b) = \\frac{1}{2b}\\text{exp}(-\\frac{-|x-\\mu|}{b}).$$\nWrite down the formula for the likelihood of the training set \\(D\\).",
-    "type": "text",
+    "type": "multi_correct",
     "answers": [
+      "A",
+      "B",
+      "C",
+      "D"
     ],
     "correctAnswer": "The likelihood of the training set is the product of the probabilities of the \\(y^{(i)}\\)s given the \\(x^{(i)}\\)s: $$L_\\theta(y|x) = \\prod_{i=1}^{m}f(y|\\theta^Tx^{(i)}, 1) = \\prod_{i=1}^{m}\\bigg( \\frac{1}{2}\\text{exp}(-|\\theta^Tx^{(i)} - y^{(i)}|) \\bigg).$$",
     "answerComment": "",

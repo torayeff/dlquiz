@@ -3,8 +3,37 @@
     min-height: 100vh;
 }
 
-.question {
+.sticky-top {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.sticky-bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+/* Question Component*/
+
+.question-container {
     padding-top: 20px;
+}
+
+.answer-form {
+    width: 100%;
+    padding: 20px 0;
+}
+
+.answer-form input{
+    width: 100%;
+}
+
+.answer-form textarea {
+    width: 100%;
 }
 
 .dlq-wrapper {
@@ -22,10 +51,6 @@
     padding: 50px;
 }
 
-.dlq-question-source {
-    padding: 10px 0 30px;
-}
-
 .dlq-hide {
     display: none;
 }
@@ -40,20 +65,3 @@ button {
     margin: 7px 0 7px !important;
 }
 
-.sticky-top {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1;
-}
-
-.sticky-bottom {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    z-index: 1;
-}
-
-.dlq-question-form {
-    padding-top: 10px;
-}
