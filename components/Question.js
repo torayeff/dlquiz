@@ -80,8 +80,10 @@ class Question extends React.Component {
             id="question-text"
             className="text-justify"
             dangerouslySetInnerHTML={{__html: this.props.question.text}}/>
-          <small className="text-black-50"><i>Source: {this.props.question.source}</i></small>
           <div className="answer-form">{answerForm}</div>
+          <small className="text-black-50"><i>Source: {this.props.question.source}</i></small>
+          <br/>
+          <br/>
         </form>
       </div>
     );

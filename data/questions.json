@@ -692,7 +692,7 @@
   },
   {
     "id": 36,
-    "text": "Suppose you are initializing the weights \\(W^{[l]}\\) of a layer with uniform random distribution \\(U(-\\alpha,\\alpha)\\). The number of input and output neurons of the layer \\(l\\) are \\(n^{[l-1]}\\) and \\(n^{[l]}\\) respectively.</br>\nAssume the input activation and weights are independently and identically distributed and have mean zero. You would like to satisfy the following equations: $$\\begin{split} E[z^{[l]}] &= 0 \\\\ Var[z^{[l]}] &= Var[a^{[l-1]}]  \\end{split}$$ What should be the value of \\(\\alpha\\)?",
+    "text": "Suppose you are initializing the weights \\(W^{[l]}\\) of a layer with uniform random distribution \\(U(-\\alpha,\\alpha)\\). The number of input and output neurons of the layer \\(l\\) are \\(n^{[l-1]}\\) and \\(n^{[l]}\\) respectively.</br>\nAssume the input activation and weights are independently and identically distributed and have mean zero. You would like to satisfy the following equations: $$\\begin{aligned} E[z^{[l]}] &= 0 \\\\ Var[z^{[l]}] &= Var[a^{[l-1]}]  \\end{aligned}$$ What should be the value of \\(\\alpha\\)?",
     "type": "text",
     "answers": [],
     "correctAnswer": "If \\(X\\) is a random variable distributed uniformly \\(U(-\\alpha, \\alpha)\\), then \\(E[X]=0\\) and \\(Var[X]=\\frac{\\alpha^2}{3}\\). Using \\(Var[z^{[l]}] = n^{[l-1]}Var[W^{[l]}]Var[a^{[l-1]}]\\) relationship, we get \\(\\alpha = \\sqrt{\\frac{3}{n^{[l-1]}}}\\). For the details see <a href=\"https://www.deeplearning.ai/ai-notes/initialization/index.html\" target=\"_blank\">here</a>.",
@@ -791,7 +791,7 @@
   },
   {
     "id": 25,
-    "text": "Consider the layers \\(l\\) and \\(l−1\\) in a fully connected neural network. The forward propagation equations for these layers are: $$ \\begin{align*} z^{[l-1]} &= W^{[l-1]}a^{[l-2]} + b^{[l-1]} \\\\ a^{[l-1]} &= g^{[l-1]}(z^{[l-1]}) \\\\ z^{[l]} &= W^{[l]}a^{[l-1]} + b^{[l]} \\\\ a^{[l]} &= g^{[l]}(z^{[l]}) \\end{align*}$$ Which of the following propositions is true? Xavier initialization ensures that :",
+    "text": "Consider the layers \\(l\\) and \\(l - 1\\) in a fully connected neural network. The forward propagation equations for these layers are: $$ \\begin{aligned} z^{[l-1]} &= W^{[l-1]}a^{[l-2]} + b^{[l-1]} \\\\ a^{[l-1]} &= g^{[l-1]}(z^{[l-1]}) \\\\ z^{[l]} &= W^{[l]}a^{[l-1]} + b^{[l]} \\\\ a^{[l]} &= g^{[l]}(z^{[l]}) \\end{aligned}$$ Which of the following propositions is true? Xavier initialization ensures that :",
     "type": "one_correct",
     "answers": [
       "\\(Var(W^{[l-1]})\\) is the same as \\(Var(W^{[l]})\\).",
@@ -897,7 +897,7 @@
     "text": "Assume you are using softmax activation with cross-entropy loss with ground truth vector \\( y \\in \\{0, 1\\}^{n_y} \\) with \\( L \\) nonzero components. What is the lower bound on the cross-entropy loss \\( \\mathcal{L}_{CE}(\\hat y, y) \\) for an example with \\(L\\) correct classes?",
     "type": "text",
     "answers": [],
-    "correctAnswer": "Let \\(S\\) denote the set of classes the given example belongs to (note \\( |S| = L \\)). Then, $$ \\begin{align} \\mathcal{L}_{CE}(\\hat y, y) & = -\\sum_{i \\in S}^{n_y}\\text{log}\\hat y_i \\\\ &= -(L) \\sum_{i \\in S}^{n_y}\\frac{1}{L}\\text{log}\\hat y_i \\\\ &\\ge (-L) \\text{log}(\\sum_{i \\in S}^{n_y}\\frac{1}{L}\\hat y_i) \\tag{by Jensen's Inequality} \\\\ &=(-L)\\text{log}\\frac{1}{L} \\tag{softmax sums to 1} \\\\ &= L\\text{log}L \\end{align}$$",
+    "correctAnswer": "Let \\(S\\) denote the set of classes the given example belongs to (note \\( |S| = L \\)). Then, $$ \\begin{aligned} \\mathcal{L}_{CE}(\\hat y, y) & = -\\sum_{i \\in S}^{n_y}\\text{log}\\hat y_i \\\\ &= -(L) \\sum_{i \\in S}^{n_y}\\frac{1}{L}\\text{log}\\hat y_i \\\\ &\\ge (-L) \\text{log}(\\sum_{i \\in S}^{n_y}\\frac{1}{L}\\hat y_i) \\tag{by Jensen's Inequality} \\\\ &=(-L)\\text{log}\\frac{1}{L} \\tag{softmax sums to 1} \\\\ &= L\\text{log}L \\end{aligned}$$",
     "answerComment": "",
     "source": "CS230: Deep Learning. Spring Quarter 2018. Stanford University."
   },

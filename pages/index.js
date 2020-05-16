@@ -2,9 +2,19 @@ import React from "react";
 import Layout from "../components/Layout";
 import Quiz from "../components/Quiz";
 import useSWR from "swr";
+import fetch from "node-fetch";
 
 function index() {
-  const fetcher = url => fetch(url).then(res => res.json());
+  const reqBody = {
+    ids: [25]
+  };
+
+  const fetcher = url => fetch(url, {
+    method: "post",
+    body: JSON.stringify(reqBody),
+    headers: {"Content-Type": "application/json"}
+  }).then(res => res.json());
+
   const {data, error} = useSWR('/api/fetch-quiz', fetcher);
 
   return (

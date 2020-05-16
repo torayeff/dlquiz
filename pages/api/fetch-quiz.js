@@ -1,16 +1,15 @@
 import questions from "../../data/questions";
-import shuffle from "../../modules/shuffle";
+
+// this will be replaced with database query
+function getQuestion(questions, id) {
+  let qs = questions.filter(q => q.id === id)[0];
+  delete qs.correctAnswer;
+  delete qs.answerComment;
+  return qs;
+}
 
 export default (req, res) => {
-
-
-  let qs = shuffle(questions).slice(0, 10);
-
-  qs = qs.map(q => {
-    delete q.correctAnswer;
-    delete q.answerComment;
-    return q;
-  });
-
+  const qIds = req.body.ids;
+  const qs = qIds.map(id => getQuestion(questions, id));
   res.status(200).json(qs);
 }
