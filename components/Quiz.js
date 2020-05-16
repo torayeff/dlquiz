@@ -1,16 +1,28 @@
 import React from "react";
 import Question from "./Question";
 
-class Quiz extends React.Component{
+class Quiz extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {"current_index": 0};
+
+    // initial state of all userAnswers
+    this.userAnswers = new Map();
+    this.props.questions.forEach(q => this.userAnswers.set(q.id, []));
+
+    // initiate state
+    this.state = {
+      current_index: 0,
+      userAnswers: this.userAnswers
+    };
+
     this.updateUserAnswer = this.updateUserAnswer.bind(this);
     this.handleNavClick = this.handleNavClick.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
   updateUserAnswer(questionId, userAnswer) {
-    console.log(questionId, userAnswer);
+    this.userAnswers.set(questionId, userAnswer);
+    this.setState({userAnswers: this.userAnswers});
   }
 
   handleNavClick(event) {
@@ -19,6 +31,14 @@ class Quiz extends React.Component{
       current_index: state.current_index + val
     }));
     event.preventDefault();
+  }
+
+  onSubmit(event) {
+    event.preventDefault();
+    const yes = confirm("Do you really want to submit the quiz? This will submit all your answers.");
+    if (yes) {
+      console.log(this.state.userAnswers);
+    }
   }
 
   render() {
@@ -35,7 +55,7 @@ class Quiz extends React.Component{
           <Question
             key={question.id}
             question={question}
-            userAnswer={[]}
+            userAnswer={this.state.userAnswers.get(question.id)}
             updateUserAnswer={this.updateUserAnswer}/>
           {
             this.state.current_index < this.props.questions.length - 1 ?
@@ -51,8 +71,14 @@ class Quiz extends React.Component{
                       type="button"
                       onClick={this.handleNavClick} id="-1">
                 Previous question
-              </button>  : ""
+              </button> : ""
           }
+          <button
+            className="btn btn-primary btn-block text-center border rounded"
+            type="button"
+            onClick={this.onSubmit}>
+            Submit quiz
+          </button>
           <div className="clearfix"/>
         </div>
       </div>

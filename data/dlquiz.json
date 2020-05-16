@@ -12,5 +12,47 @@
     "correctAnswer": "The likelihood of the training set is the product of the probabilities of the \\(y^{(i)}\\)s given the \\(x^{(i)}\\)s: $$L_\\theta(y|x) = \\prod_{i=1}^{m}f(y|\\theta^Tx^{(i)}, 1) = \\prod_{i=1}^{m}\\bigg( \\frac{1}{2}\\text{exp}(-|\\theta^Tx^{(i)} - y^{(i)}|) \\bigg).$$",
     "answerComment": "",
     "source": "CSC411. Winter 2018. University of Toronto."
+  },
+  {
+    "id": 1,
+    "text": "CCCCCCCYour training set is \\( D = \\{(x^{(1)}, y^{(1)}), ..., (x^{(m)}, y^{(m)})\\} \\)",
+    "type": "one_correct",
+    "answers": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": "The likelihood of the training set is the product of the probabilities of the \\(y^{(i)}\\)s given the \\(x^{(i)}\\)s: $$L_\\theta(y|x) = \\prod_{i=1}^{m}f(y|\\theta^Tx^{(i)}, 1) = \\prod_{i=1}^{m}\\bigg( \\frac{1}{2}\\text{exp}(-|\\theta^Tx^{(i)} - y^{(i)}|) \\bigg).$$",
+    "answerComment": "",
+    "source": "CSC411. Winter 2018. University of Toronto."
+  },
+  {
+    "id": 12,
+    "text": "BBBBBBBBYour training set is \\( D = \\{(x^{(1)}, y^{(1)}), ..., (x^{(m)}, y^{(m)})\\} \\)",
+    "type": "text",
+    "answers": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": "The likelihood of the training set is the product of the probabilities of the \\(y^{(i)}\\)s given the \\(x^{(i)}\\)s: $$L_\\theta(y|x) = \\prod_{i=1}^{m}f(y|\\theta^Tx^{(i)}, 1) = \\prod_{i=1}^{m}\\bigg( \\frac{1}{2}\\text{exp}(-|\\theta^Tx^{(i)} - y^{(i)}|) \\bigg).$$",
+    "answerComment": "",
+    "source": "CSC411. Winter 2018. University of Toronto."
+  },
+  {
+    "id": 13422,
+    "text": "AaaaaaaaaaYour training set is \\( D = \\{(x^{(1)}, y^{(1)}), ..., (x^{(m)}, y^{(m)})\\} \\)",
+    "type": "number",
+    "answers": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": "The likelihood of the training set is the product of the probabilities of the \\(y^{(i)}\\)s given the \\(x^{(i)}\\)s: $$L_\\theta(y|x) = \\prod_{i=1}^{m}f(y|\\theta^Tx^{(i)}, 1) = \\prod_{i=1}^{m}\\bigg( \\frac{1}{2}\\text{exp}(-|\\theta^Tx^{(i)} - y^{(i)}|) \\bigg).$$",
+    "answerComment": "",
+    "source": "CSC411. Winter 2018. University of Toronto."
   }
 ]
