@@ -22,6 +22,10 @@
     z-index: 1;
 }
 
+.quiz-container {
+    padding: 50px;
+}
+
 .question-container {
     padding-top: 20px;
 }
@@ -45,8 +49,9 @@
     margin-bottom: 0;
 }
 
-.quiz-container {
-    padding: 50px;
+.centered-info {
+    padding: 20px;
+    text-align: center;
 }
 
 img {

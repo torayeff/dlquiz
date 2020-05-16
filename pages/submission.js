@@ -9,7 +9,7 @@ class Submission extends React.Component {
   render() {
     return (
       <Layout title={"Submission"}>
-        <h3 className="text-center">Your answers were successfully submitted!</h3>
+        <h4 className="centered-info">Your answers were successfully submitted!</h4>
       </Layout>
     );
   }
