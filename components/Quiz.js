@@ -4,32 +4,12 @@ import Question from "./Question";
 
 const Quiz = (props) => {
 
-  const [remainingTime, setRemainingTime] = useState(props.time);
   const [editable, setEditable] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [userAnswers, setUserAnswers] = useState(() => {
     let uA = {};
     props.questions.forEach(q => uA[q.id] = []);
     return uA;
-  });
-
-  useEffect(() => {
-    let timer = null;
-    timer = setInterval(
-      () => {
-        if (remainingTime > 0) {
-          setRemainingTime(remainingTime - 1);
-        } else {
-          clearInterval(timer);
-          setEditable(false);
-          submitUserAnswers();
-        }
-      },
-      1000
-    );
-
-    // cleanup
-    return () => clearInterval(timer);
   });
 
   const updateUserAnswers = (questionId, userAnswer) => {
@@ -58,12 +38,17 @@ const Quiz = (props) => {
     }
   };
 
+  const onTimerEnd = () => {
+    setEditable(!editable);
+    submitUserAnswers();
+  };
+
   const question = props.questions[currentIndex];
 
   return (
     <div className="col-md-12 col-lg-10 col-xl-8 offset-lg-1 offset-xl-2">
       <h2 className="text-center dlq-h2">Deep Learning Quiz</h2>
-      <Timer remainingTime={remainingTime}/>
+      <Timer time={props.time} onTimerEnd={onTimerEnd}/>
       <div className="border rounded shadow quiz-container">
         <h4 className="text-center">
           <b>Question</b>: {currentIndex + 1} / {props.questions.length}
