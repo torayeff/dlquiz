@@ -3,7 +3,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import React from "react";
 
-export default ({children, title}) => (
+const Layout = ({children, title}) => (
   <div>
     <Head>
       <meta charSet="utf-8"/>
@@ -28,3 +28,5 @@ export default ({children, title}) => (
     <Footer/>
   </div>
 );
+
+export default Layout;
