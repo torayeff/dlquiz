@@ -18,8 +18,6 @@ const Question = (props) => {
     } else if (props.question.type === "multi_correct") {
       userAnswer = document.querySelectorAll("input[type=checkbox]:checked");
       userAnswer = [...userAnswer].map(el => parseInt(el.value));
-    } else {
-      userAnswer = event.target.value;
     }
 
     props.updateUserAnswers(props.question.id, userAnswer);
