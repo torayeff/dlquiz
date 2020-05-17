@@ -8,12 +8,20 @@ const Question = (props) => {
 
   const onChange = (event) => {
     let userAnswer;
-    if (props.question.type === "multi_correct") {
+
+    if (props.question.type === "text") {
+      userAnswer = event.target.value;
+    } else if (props.question.type === "number") {
+      userAnswer = parseFloat(event.target.value);
+    } else if (props.question.type === "one_correct") {
+      userAnswer = parseInt(event.target.value);
+    } else if (props.question.type === "multi_correct") {
       userAnswer = document.querySelectorAll("input[type=checkbox]:checked");
       userAnswer = [...userAnswer].map(el => parseInt(el.value));
     } else {
       userAnswer = event.target.value;
     }
+
     props.updateUserAnswers(props.question.id, userAnswer);
   };
 
@@ -42,12 +50,30 @@ const Question = (props) => {
           disabled={!props.editable}/>
       </div>
     );
-  } else {
+  } else if (props.question.type === "one_correct") {
     answerForm = props.question.answers.map((answer, index) =>
       <div className="form-check" key={props.question.id + "-" + index}>
         <input
           className="form-check-input"
-          type={props.question.type === "one_correct" ? "radio" : "checkbox"}
+          type="radio"
+          id={props.question.id + "-" + index}
+          name="answer"
+          value={index}
+          onChange={onChange}
+          checked={parseInt(props.userAnswer) === index}
+          disabled={!props.editable}/>
+        <label className="form-check-label"
+               htmlFor={props.question.id + "-" + index}>
+          {answer}
+        </label>
+      </div>
+    );
+  } else if (props.question.type === "multi_correct") {
+    answerForm = props.question.answers.map((answer, index) =>
+      <div className="form-check" key={props.question.id + "-" + index}>
+        <input
+          className="form-check-input"
+          type="checkbox"
           id={props.question.id + "-" + index}
           name="answer"
           value={index}
