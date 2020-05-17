@@ -1,3 +1,5 @@
+import {useEffect, useState} from "react";
+
 const Timer = (props) => {
   const renderTime = (seconds) => {
     let h = Math.floor(seconds / 3600);
@@ -11,9 +13,25 @@ const Timer = (props) => {
     return h + m + s;
   };
 
+  const [remainingTime, setRemainingTime] = useState(props.time);
+  useEffect(() => {
+
+    if (!remainingTime) {
+      props.onTimerEnd();
+      return;
+    }
+
+    const timerID = setInterval(() => {
+      setRemainingTime(remainingTime - 1);
+    }, 1000);
+
+    // cleanup
+    return () => clearInterval(timerID);
+  }, [remainingTime]);
+
   return (
     <div className="timer text-center">
-      <h4>{renderTime(props.remainingTime)}</h4>
+      <h4>{renderTime(remainingTime)}</h4>
     </div>
   );
 };
