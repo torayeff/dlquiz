@@ -44,7 +44,7 @@ const Question = (props) => {
           step="0.0001"
           placeholder="Answer up to 4 decimal places: 0.1234"
           onChange={onChange}
-          value={props.userAnswer}
+          value={props.userAnswer+""}
           disabled={!props.editable}/>
       </div>
     );
