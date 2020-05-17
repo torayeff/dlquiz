@@ -1,53 +1,46 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-class Timer extends React.Component {
-  constructor(props) {
-    super(props);
+function renderTime(seconds) {
+  let h = Math.floor(seconds / 3600);
+  let m = Math.floor((seconds % 3600) / 60);
+  let s = Math.floor(seconds % 60);
 
-    this.state = {remainingTime: this.props.time};
-  }
+  h = h > 0 ? h + ":" : "";
+  m = m >= 10 ? m + ":" : "0" + m + ":";
+  s = s >= 10 ? s : "0" + s;
 
-  componentDidMount() {
-    this.timerID = setInterval(
-      () => this.tickDown(),
+  return h + m + s;
+}
+
+const Timer = (props) => {
+  const [remainingTime, setRemainingTime] = useState(props.time);
+
+  useEffect(() => {
+    let timer = null;
+    timer = setInterval(
+      () => {
+        if (remainingTime > 0) {
+          setRemainingTime(remainingTime - 1);
+        } else {
+          clearInterval(timer);
+        }
+      },
       1000
     );
+
+    // cleanup
+    return () => clearInterval(timer);
+  });
+
+  if (remainingTime === 0) {
+    props.onTimerEnd();
   }
 
-  componentWillUnmount() {
-    clearInterval(this.timerID)
-  }
-
-  tickDown() {
-    const rt = this.state.remainingTime - 1;
-
-    if (rt >= 0) {
-      this.setState({remainingTime: rt});
-    } else {
-      clearInterval(this.timerID);
-      this.props.onTimerEnd("Time elapsed");
-    }
-  }
-
-  renderTime(seconds) {
-    let h = Math.floor(seconds / 3600);
-    let m = Math.floor((seconds % 3600) / 60);
-    let s = Math.floor(seconds % 60);
-
-    h = h > 0 ? h + ":" : "";
-    m = m >= 10 ? m + ":" : "0" + m + ":";
-    s = s >= 10 ? s : "0" + s;
-
-    return h + m + s;
-  }
-
-  render() {
-    return (
-      <div className="timer text-center">
-        <h4>{this.renderTime(this.state.remainingTime)}</h4>
-      </div>
-    );
-  }
-}
+  return (
+    <div className="timer text-center">
+      <h4>{renderTime(remainingTime)}</h4>
+    </div>
+  );
+};
 
 export default Timer;
