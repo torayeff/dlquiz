@@ -9,9 +9,7 @@
       "Combining weak learners using boosting is good since it can reduce the variance.",
       "Combining strong learners using bagging is good since it can reduce the variance."
     ],
-    "correctAnswer": [
-      3
-    ],
+    "correctAnswer": 3,
     "answerComment": "",
     "source": "CSC411. Winter 2019. University of Toronto."
   },
@@ -60,9 +58,7 @@
       "Bob’s prior beliefs about aliens’ existence are different from Alice’s.",
       "None of the above."
     ],
-    "correctAnswer": [
-      2
-    ],
+    "correctAnswer": 2,
     "answerComment": "Bob’s prior about aliens \\(P(\\text{aliens})\\) is very small, and Alice’s prior is larger, making it so that Alice’s posterior $$P(\\text{aliens}|\\text{spaceship}) = \\frac{P(\\text{spaceship}|\\text{aliens}) P(\\text{aliens})}{P(\\text{spaceship})}$$ is larger than Bob's. The second answer is wrong because ML inference means comparing \\(P(\\text{spaceship}|\\text{aliens})\\) and \\(P(\\text{spaceship}|\\neg\\text{aliens})\\). If Bob is doing that, he would more readily conclude that aliens exist. Other options don’t really make sense.",
     "source": "CSC411. Winter 2018. University of Toronto."
   },
@@ -76,9 +72,7 @@
       "C",
       "D"
     ],
-    "correctAnswer": [
-      1
-    ],
+    "correctAnswer": 1,
     "answerComment": "The answer is B. We can rule out C and D because the decision boundary is independent of \\(x_1\\). Additionally, \\(h_\\theta(x)\\) is smaller than \\(0.5\\) for \\(x_2 > 6\\) (so the output is \\(0\\)), and larger than \\(0.5\\) for \\(x_2 < 6\\) (so the output is \\(1\\)).",
     "source": "CSC411. Winter 2018. University of Toronto."
   },
@@ -117,9 +111,7 @@
       "True",
       "False"
     ],
-    "correctAnswer": [
-      1
-    ],
+    "correctAnswer": 1,
     "answerComment": "The model outputs a distribution over the categories, and due to the softmax, the probabilities will all be positive. Hence, the cross-entropy loss will be nonzero.",
     "source": "CSC321. Winter 2018. University of Toronto."
   },
@@ -149,9 +141,7 @@
       "True",
       "False"
     ],
-    "correctAnswer": [
-      1
-    ],
+    "correctAnswer": 1,
     "answerComment": "An example would be a network with a bottleneck layer. E.g, suppose \\(A\\) has three layers with sizes \\(100\\), \\(10\\), \\(100\\), and \\(B\\) has two layers with sizes \\(100\\) and \\(100\\). Then \\(A\\) has \\(2000\\) connections while \\(B\\) has \\(10000\\) connections.",
     "source": "CSC321. Winter 2018. University of Toronto."
   },
@@ -181,9 +171,7 @@
       "True",
       "False"
     ],
-    "correctAnswer": [
-      1
-    ],
+    "correctAnswer": 1,
     "answerComment": "SGD moves downhill on average, but individual updates can certainly increase the cost.",
     "source": "CSC321. Winter 2017. University of Toronto."
   },
@@ -222,9 +210,7 @@
       "True",
       "False"
     ],
-    "correctAnswer": [
-      1
-    ],
+    "correctAnswer": 1,
     "answerComment": "It’s also dependent on the learning rate because it can overshoot.",
     "source": "CS231n. Spring 2017 Sample Midterm Exam. Stanford University."
   },
@@ -236,9 +222,7 @@
       "True",
       "False"
     ],
-    "correctAnswer": [
-      0
-    ],
+    "correctAnswer": 0,
     "answerComment": "ReLU, sigmoid, and tanh are nondecreasing functions; therefore, the gradient is always nonnegative",
     "source": "CS231n. Spring 2017 Sample Midterm Exam. Stanford University."
   },
@@ -250,9 +234,7 @@
       "True",
       "False"
     ],
-    "correctAnswer": [
-      0
-    ],
+    "correctAnswer": 0,
     "answerComment": "We add biases to take into account the priors of the input data to that layer. We don’t want to impose any penalty on making this large; if an input always has a lot more red, we want the bias term to take care of that.",
     "source": "CS231n. Spring 2017 Sample Midterm Exam. Stanford University."
   },
@@ -264,9 +246,7 @@
       "True",
       "False"
     ],
-    "correctAnswer": [
-      1
-    ],
+    "correctAnswer": 1,
     "answerComment": "If the gradient is \\(-3\\), a small increase of \\(\\epsilon\\) in the weight will increase the loss by \\(-3\\epsilon\\), or, in other words, decrease the loss by \\(3\\epsilon\\). In this problem, decreasing the weight will increase the loss.",
     "source": "CS231n. Spring 2017 Sample Midterm Exam. Stanford University."
   },
@@ -278,9 +258,7 @@
       "True",
       "False"
     ],
-    "correctAnswer": [
-      0
-    ],
+    "correctAnswer": 0,
     "answerComment": "Breaking symmetry = “we don’t want all the neurons to do the same thing because then we’re only really learning like one feature, really. But if you initialize them randomly, each neuron will learn to specialize in different things. The reason we initialize them randomly is so the different neurons can learn different things and the different layers can specialize in different things”",
     "source": "CS231n. Spring 2017 Sample Midterm Exam. Stanford University."
   },
@@ -292,9 +270,7 @@
       "True",
       "False"
     ],
-    "correctAnswer": [
-      0
-    ],
+    "correctAnswer": 0,
     "answerComment": "",
     "source": "CS231n. Spring 2017 Sample Midterm Exam. Stanford University."
   },
@@ -306,9 +282,7 @@
       "True",
       "False"
     ],
-    "correctAnswer": [
-      1
-    ],
+    "correctAnswer": 1,
     "answerComment": "Consider the case where the biases are nonzero.",
     "source": "CS231n. Spring 2017 Sample Midterm Exam. Stanford University."
   },
@@ -420,9 +394,7 @@
       "Fast Gradient Sign Method",
       "Real-time Cryptographic Dropout Method"
     ],
-    "correctAnswer": [
-      4
-    ],
+    "correctAnswer": 4,
     "answerComment": "",
     "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
   },
@@ -436,9 +408,7 @@
       "The process of tuning hyperparameters to reduce the loss function during training.",
       "The process of identifying which parts of your model contributed to the error."
     ],
-    "correctAnswer": [
-      1
-    ],
+    "correctAnswer": 1,
     "answerComment": "",
     "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
   },
@@ -486,9 +456,7 @@
       "When you have a small amount of data for a particular task that would benefit from the large dataset of another task.",
       "When the tasks have datasets of different formats (text and images)."
     ],
-    "correctAnswer": [
-      2
-    ],
+    "correctAnswer": 2,
     "answerComment": "",
     "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
   },
@@ -502,9 +470,7 @@
       "It is commonly used in logistic regression.",
       "The assumptions made are only valid at the beginning of training."
     ],
-    "correctAnswer": [
-      3
-    ],
+    "correctAnswer": 3,
     "answerComment": "",
     "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
   },
@@ -518,9 +484,7 @@
       "In Batchnorm, the mean is computed over the features.",
       "Batchnorm is a non-linear transformation to center the dataset around the origin."
     ],
-    "correctAnswer": [
-      1
-    ],
+    "correctAnswer": 1,
     "answerComment": "",
     "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
   },
@@ -534,9 +498,7 @@
       "After training the GAN, the discriminator loss eventually reaches a constant value.",
       "The generator can produce unseen images of apples."
     ],
-    "correctAnswer": [
-      1
-    ],
+    "correctAnswer": 1,
     "answerComment": "",
     "source": "CS230: Deep Learning. Winter Quarter 2019. Stanford University."
   },
@@ -593,9 +555,7 @@
       "True",
       "False"
     ],
-    "correctAnswer": [
-      0
-    ],
+    "correctAnswer": 0,
     "answerComment": "The examples in a batch should be i.i.d. because mini-batch gradient descent uses an empirical estimate of the gradient from a small batch. If the examples are correlated, then the gradient estimates will become biased and the model will fail to learn.",
     "source": "CS230: Deep Learning. Fall Quarter 2019. Stanford University."
   },
@@ -607,9 +567,7 @@
       "True",
       "False"
     ],
-    "correctAnswer": [
-      0
-    ],
+    "correctAnswer": 0,
     "answerComment": "",
     "source": "CS230: Deep Learning. Fall Quarter 2019. Stanford University."
   },
@@ -621,9 +579,7 @@
       "True",
       "False"
     ],
-    "correctAnswer": [
-      0
-    ],
+    "correctAnswer": 0,
     "answerComment": "If \\(z = \\text{tanh}(x)\\), then \\(\\frac{\\partial z}{\\partial x} = 1 - \\text{tanh}^2(x) = 1 - z^2\\)",
     "source": "CS230: Deep Learning. Fall Quarter 2019. Stanford University."
   },
@@ -799,9 +755,7 @@
       "\\(Var(a^{[l]})\\) is the same as \\(Var(a^{[l-1]})\\), at the end of the training.",
       "\\(Var(a^{[l]})\\) is the same as \\(Var(a^{[l-1]})\\), at the beginning of the training."
     ],
-    "correctAnswer": [
-      3
-    ],
+    "correctAnswer": 3,
     "answerComment": "",
     "source": "CS230: Deep Learning. Fall Quarter 2018. Stanford University."
   },
@@ -817,9 +771,7 @@
       "For convex loss functions (i.e. with a bowl shape), both stochastic gradient descent and batch gradient descent will eventually converge to the global optimum.",
       "For convex loss functions (i.e. with a bowl shape), neither stochastic gradient ndescent nor batch gradient descent are guaranteed to converge to the global optimum."
     ],
-    "correctAnswer": [
-      2
-    ],
+    "correctAnswer": 2,
     "answerComment": "",
     "source": "CS230: Deep Learning. Fall Quarter 2018. Stanford University."
   },
@@ -850,9 +802,7 @@
       "Early stopping",
       "None of the above"
     ],
-    "correctAnswer": [
-      3
-    ],
+    "correctAnswer": 3,
     "answerComment": "",
     "source": "CS230: Deep Learning. Fall Quarter 2018. Stanford University."
   },
@@ -967,8 +917,9 @@
   {
     "id": 9,
     "text": "Consider an input image of shape 500 × 500 × 3. You run this image in\na convolutional layer with 10 filters, of kernel size 5 × 5. How many parameters does\nthis layer have?",
-    "type": "text",
-    "correctAnswer": "5 × 5 × 3 × 10 and a bias value for each of the 10 filters, giving 760\nparameters.",
+    "type": "number",
+    "correctAnswer": 760,
+    "answerComment": "5 × 5 × 3 × 10 and a bias value for each of the 10 filters, giving 760\nparameters.",
     "source": "CS230: Deep Learning. Spring Quarter 2018. Stanford University."
   },
   {
@@ -988,9 +939,7 @@
       "\\( \\text{Precision} = \\frac{\\text{True positive examples}}{\\text{Total predicted positive examples}} \\)",
       "\\( \\text{Recall} = \\frac{\\text{True positive examples}}{\\text{Total positive examples}} \\)"
     ],
-    "correctAnswer": [
-      1
-    ],
+    "correctAnswer": 1,
     "answerComment": "Increase recall, because we don’t want false negatives.",
     "source": "CS230: Deep Learning. Spring Quarter 2018. Stanford University."
   },
@@ -1004,9 +953,7 @@
       "1,000,000",
       "1,030,000"
     ],
-    "correctAnswer": [
-      1
-    ],
+    "correctAnswer": 1,
     "answerComment": "You only update the image, i.e. 10,000 pixels and each pixel has\n3 channels.",
     "source": "CS230: Deep Learning. Spring Quarter 2018. Stanford University."
   },
@@ -1018,9 +965,7 @@
       "True",
       "False"
     ],
-    "correctAnswer": [
-      0
-    ],
+    "correctAnswer": 0,
     "source": "CS230: Deep Learning. Spring Quarter 2018. Stanford University."
   },
   {
@@ -1061,9 +1006,7 @@
       "True",
       "False"
     ],
-    "correctAnswer": [
-      0
-    ],
+    "correctAnswer": 0,
     "source": "CS230: Deep Learning. Spring Quarter 2018. Stanford University."
   },
   {
@@ -1075,9 +1018,7 @@
       "It increases the number of parameters when compared to a similar network without max pooling.",
       "It increases the sensitivity of the network towards the position of features within an image."
     ],
-    "correctAnswer": [
-      0
-    ],
+    "correctAnswer": 0,
     "source": "CS230: Deep Learning. Spring Quarter 2018. Stanford University."
   }
 ]
