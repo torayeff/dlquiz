@@ -1,31 +1,38 @@
-import React from "react";
+import React, {useState} from "react";
+import fetch from "node-fetch";
 import Layout from "../components/Layout";
 import Quiz from "../components/Quiz";
-import useSWR from "swr";
-import fetch from "node-fetch";
+import questions from "../data/questions";
+import QuizResults from "../components/QuizResults";
 
 function Index() {
-  const reqBody = {
-    ids: [3, 36, 88, 9]
-  };
+  let qs = [questions[1], questions[92-0], questions[92-3], questions[92-8], questions[92-9]];
+  const time = -5;
 
-  const fetcher = url => fetch(url, {
-    method: "post",
-    body: JSON.stringify(reqBody),
-    headers: {"Content-Type": "application/json"}
-  }).then(res => res.json());
-  const {data, error} = useSWR('/api/fetch-quiz', fetcher);
+  const [results, setResults] = useState([]);
 
   const getUserAnswers = (userAnswers) => {
-    console.log("from index: ", userAnswers);
+    const reqBody = {
+      userAnswers: userAnswers
+    };
+
+    fetch('/api/check-quiz', {
+      method: "post",
+      body: JSON.stringify(reqBody),
+      headers: {"Content-Type": "application/json"}
+    }).then(res => res.json()).then(res => setResults(res));
   };
 
   return (
     <Layout title={"Deep Learning Quiz"}>
       <div className="wrapper">
         <div className="container">
-          {data ? <div className="row"><Quiz questions={data} time={3} getUserAnswers={getUserAnswers}/></div> :
-            <h4 className="centered-info">Loading...</h4>}
+          {results.length === 0 ?
+            <div className="row">
+              <Quiz questions={qs} time={time} getUserAnswers={getUserAnswers}/>
+            </div>
+            :
+            <QuizResults results={results} />}
         </div>
       </div>
     </Layout>
