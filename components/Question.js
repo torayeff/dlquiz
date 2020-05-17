@@ -4,7 +4,6 @@ import renderMathInElement from "../modules/auto-render";
 class Question extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {"userAnswer": this.props.userAnswer};
     this.onChange = this.onChange.bind(this);
   }
 
@@ -13,21 +12,14 @@ class Question extends React.Component {
   }
 
   onChange(event) {
-    if (this.props.question.type === "text") {
-      this.setState({userAnswer: event.target.value}, () =>
-        this.props.updateUserAnswer(this.props.question.id, this.state.userAnswer));
-    } else if (this.props.question.type === "number") {
-      this.setState({userAnswer: parseFloat(event.target.value)}, () =>
-        this.props.updateUserAnswer(this.props.question.id, this.state.userAnswer));
-    } else if (this.props.question.type === "one_correct") {
-      this.setState({userAnswer: [parseInt(event.target.value)]}, () =>
-        this.props.updateUserAnswer(this.props.question.id, this.state.userAnswer));
-    } else if (this.props.question.type === "multi_correct") {
-      let answers = document.querySelectorAll("input[type=checkbox]:checked");
-      answers = [...answers].map(el => parseInt(el.value));
-      this.setState({userAnswer: answers}, () =>
-        this.props.updateUserAnswer(this.props.question.id, this.state.userAnswer));
+    let userAnswer;
+    if (this.props.question.type === "multi_correct") {
+      userAnswer = document.querySelectorAll("input[type=checkbox]:checked");
+      userAnswer = [...userAnswer].map(el => parseInt(el.value));
+    } else {
+      userAnswer = event.target.value;
     }
+    this.props.updateUserAnswers(this.props.question.id, userAnswer);
   }
 
   render() {
@@ -40,7 +32,7 @@ class Question extends React.Component {
             id="answer"
             rows="5"
             onChange={this.onChange}
-            value={this.state.userAnswer}/>
+            value={this.props.userAnswer}/>
         </div>
       );
     } else if (this.props.question.type === "number") {
@@ -51,7 +43,7 @@ class Question extends React.Component {
             step="0.0001"
             placeholder="Answer up to 4 decimal places: 0.1234"
             onChange={this.onChange}
-            value={this.state.userAnswer}/>
+            value={this.props.userAnswer}/>
         </div>
       );
     } else {
@@ -64,7 +56,7 @@ class Question extends React.Component {
             name="answer"
             value={index}
             onChange={this.onChange}
-            checked={this.state.userAnswer.includes(index)}/>
+            checked={this.props.userAnswer.includes(index)}/>
           <label className="form-check-label"
                  htmlFor={this.props.question.id + "-" + index}>
             {answer}
