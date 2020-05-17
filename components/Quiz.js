@@ -21,7 +21,8 @@ const Quiz = (props) => {
           setRemainingTime(remainingTime - 1);
         } else {
           clearInterval(timer);
-          onTimerEnd();
+          setEditable(false);
+          submitUserAnswers();
         }
       },
       1000
@@ -41,7 +42,7 @@ const Quiz = (props) => {
   };
 
   const submitUserAnswers = () => {
-    console.log(userAnswers);
+    props.getUserAnswers(userAnswers);
   };
 
   const handleNavClick = (event) => {
@@ -55,10 +56,6 @@ const Quiz = (props) => {
     if (yes) {
       submitUserAnswers();
     }
-  };
-
-  const onTimerEnd = () => {
-    setEditable(false);
   };
 
   const question = props.questions[currentIndex];
