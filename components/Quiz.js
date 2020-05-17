@@ -48,7 +48,7 @@ const Quiz = (props) => {
   return (
     <div className="col-md-12 col-lg-10 col-xl-8 offset-lg-1 offset-xl-2">
       <h2 className="text-center dlq-h2">Deep Learning Quiz</h2>
-      <Timer time={props.time} onTimerEnd={onTimerEnd}/>
+      {props.time > 0 ? <Timer time={props.time} onTimerEnd={onTimerEnd}/> : ""}
       <div className="border rounded shadow quiz-container">
         <h4 className="text-center">
           <b>Question</b>: {currentIndex + 1} / {props.questions.length}
