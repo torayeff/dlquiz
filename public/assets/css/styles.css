@@ -43,6 +43,14 @@
     width: 100%;
 }
 
+.correct-answer {
+    color: #1e7e34;
+}
+
+.wrong-answer {
+    color: #a71d2a;
+}
+
 .dlq-h2 {
     padding-top: 20px;
     padding-bottom: 10px;

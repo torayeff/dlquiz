@@ -5,8 +5,8 @@ function getQuestion(questions, id) {
 }
 
 export default (req, res) => {
+  const questionIds = req.body.questionIds;
   const userAnswers = req.body.userAnswers;
-  const questionIds = Object.keys(userAnswers);
 
   let results = questionIds.map(id => {
     let question = getQuestion(questions, id);
