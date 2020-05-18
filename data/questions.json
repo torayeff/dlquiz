@@ -126,7 +126,7 @@
   },
   {
     "id": 82,
-    "text": "Compute the convolution of the following two arrays: $$ (4,1,−1,3) * (−2,1)\u0001$$ Your answer should be an array of length \\(5\\).",
+    "text": "Compute the convolution of the following two arrays: $$(4,1,-1,3) * (-2,1)$$ Your answer should be an array of length \\(5\\).",
     "type": "text",
     "answers": [],
     "correctAnswer": "\\((−8,2,3,−7,3)\\)",
