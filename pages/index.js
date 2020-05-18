@@ -3,28 +3,31 @@ import fetch from "node-fetch";
 import Layout from "../components/Layout";
 import Quiz from "../components/Quiz";
 import QuizResults from "../components/QuizResults";
-import useSWR from "swr";
+import QuizSettings from "../components/QuizSettings";
 
-function Index() {
-  const time = -5;
+function DLQuiz() {
+  const [quizStart, setQuizStart] = useState(false);
+  const [quizTime, setQuizTime] = useState(-1);
+  const [questions, setQuestions] = useState([]);
   const [userResults, setUserResults] = useState([]);
-  const questionIds = [66, 3, 36, 88, 9];
 
-  // fetch questions
-  const reqBody = {
-    questionIds: questionIds
+  // fetch quiz
+  const getQuestions = (questionsCount) => {
+    const reqBody = {
+      questionsCount: questionsCount,
+    };
+
+    fetch('/api/fetch-quiz', {
+      method: "post",
+      body: JSON.stringify(reqBody),
+      headers: {"Content-Type": "application/json"}
+    }).then(res => res.json()).then(res => setQuestions(res));
   };
-  const fetcher = url => fetch(url, {
-    method: "post",
-    body: JSON.stringify(reqBody),
-    headers: {"Content-Type": "application/json"}
-  }).then(res => res.json());
-  const {data, error} = useSWR('/api/fetch-quiz', fetcher);
 
   // check quiz
   const getUserAnswers = (userAnswers) => {
     const reqBody = {
-      questionIds: questionIds,
+      questionsIds: questions.map(q => q.id),
       userAnswers: userAnswers
     };
 
@@ -35,15 +38,34 @@ function Index() {
     }).then(res => res.json()).then(res => setUserResults(res));
   };
 
+  // start quiz
+  const startQuiz = (questionsCount, quizTime) => {
+    getQuestions(questionsCount);
+    setQuizTime(quizTime);
+    setQuizStart(true);
+  };
+
   let out;
-  if (userResults.length > 0) {
-    out = <QuizResults results={userResults}/>
-  } else if (data) {
-    out = <div className="row"><Quiz questions={data} time={time} getUserAnswers={getUserAnswers}/></div>
-  } else if (error) {
-    out = <h4 className="centered-info">Error!</h4>;
+  if (quizStart) {
+    if (userResults.length > 0) {
+      out = <QuizResults results={userResults}/>
+    } else if (questions.length > 0) {
+      out = (
+        <div className="row">
+          <Quiz questions={questions}
+                time={quizTime}
+                getUserAnswers={getUserAnswers}/>
+        </div>
+      );
+    } else {
+      out = (
+        <h4 className="centered-info">Loading...</h4>
+      );
+    }
   } else {
-    out = <h4 className="centered-info">Loading...</h4>;
+    out = (
+      <QuizSettings startQuiz={startQuiz}/>
+    );
   }
 
   return (
@@ -57,4 +79,4 @@ function Index() {
   );
 }
 
-export default Index;
+export default DLQuiz;

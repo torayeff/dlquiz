@@ -1,4 +1,5 @@
 import questions from "../../data/questions";
+import shuffle from "../../modules/shuffle";
 
 // this will be replaced with database query
 function getQuestion(questions, id) {
@@ -9,7 +10,13 @@ function getQuestion(questions, id) {
 }
 
 export default (req, res) => {
-  const qIds = req.body.questionIds;
+  let qIds;
+  if (req.body.questionsCount) {
+    // return random questions
+    qIds = shuffle(questions.map(q => q.id)).slice(0, parseInt(req.body.questionsCount));
+  } else {
+    qIds = req.body.questionsIds;
+  }
   const qs = qIds.map(id => getQuestion(questions, id));
   res.status(200).json(qs);
 }

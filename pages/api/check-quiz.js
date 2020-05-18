@@ -5,10 +5,10 @@ function getQuestion(questions, id) {
 }
 
 export default (req, res) => {
-  const questionIds = req.body.questionIds;
+  const questionsIds = req.body.questionsIds;
   const userAnswers = req.body.userAnswers;
 
-  let results = questionIds.map(id => {
+  let results = questionsIds.map(id => {
     let question = getQuestion(questions, id);
     let userAnswer = userAnswers[id];
 
