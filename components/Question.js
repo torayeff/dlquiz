@@ -95,7 +95,7 @@ const Question = (props) => {
           className="text-justify"
           dangerouslySetInnerHTML={{__html: props.question.text}}/>
         <div className="answer-form">{answerForm}</div>
-        {props.question.correctAnswer ? <Answers question={props.question}/> : ""}
+        {props.question.hasOwnProperty("correctAnswer") ? <Answers question={props.question}/> : ""}
         <small className="text-black-50"><i>Source: {props.question.source}</i></small>
         <br/>
         <br/>
