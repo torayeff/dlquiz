@@ -20,12 +20,14 @@ const QuizSettings = (props) => {
           <form>
             <div className="answer-form">
               <label>Number of questions:</label>
-              <input type="number" name="quiz-count" value={questionsCount} onChange={onCountChange}/>
+              <input type="number" className="width-100"
+                     name="quiz-count" value={questionsCount} onChange={onCountChange}/>
             </div>
 
             <div className="answer-form">
               <label>Time in seconds (type -1 for unlimited time):</label>
-              <input type="number" name="quiz-time" value={quizTime} onChange={onTimeChange}/>
+              <input type="number" className="width-100"
+                     name="quiz-time" value={quizTime} onChange={onTimeChange}/>
             </div>
 
             <button
