@@ -26,7 +26,7 @@ New questions can be added simply by editing questions.json file in data folder.
 I plan to add question adding form soon, or feel free to contribute.
 
 # Deployment and Demo
-I used [React.js](https://reactjs.org/) framework with [Next.js](https://nextjs.org/) as backend since the latter allows easy server side rendering and free hosting. This particular deep learning quiz is hosted [here](https://dlquiz.challenges.ai/)
+I used [React.js](https://reactjs.org/) framework with [Next.js](https://nextjs.org/) as backend since the latter allows easy server side rendering and free hosting. This particular deep learning quiz is hosted [here](https://challenges.ai/)
 
 # Can I use it for other types of quizzes?
 Yes, it is super easy to modify this according to your needs. All you need is to modify questions.json file.
