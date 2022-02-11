@@ -15,10 +15,7 @@
     "url": "https://github.com/torayeff"
   },
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ashleygwilliams/my_package/issues"
-  },
-  "homepage": "https://dlquiz.challenges.ai",
+  "homepage": "https://dlquiz.vercel.app/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
